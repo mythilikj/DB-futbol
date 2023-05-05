@@ -1,8 +1,16 @@
 
 create table jugador(
-  id_jugador varchar(10), id_equipo varchar(10), dorsal integer, primer_nombre varchar(30), segundo_nombre varchar(30),
-  primer_apellido varchar(30), segundo_apellido varchar(30), nacionalidad varchar(30), fecha_nacimiento date,
-  constraint jugador_pk primary key (id_jugador), foreign key (id_equipo) references equipo
+	id_jugador varchar(10), 
+	id_equipo varchar(10), 
+	dorsal integer, 
+	primer_nombre varchar(30), 
+	segundo_nombre varchar(30),
+	primer_apellido varchar(30), 
+	segundo_apellido varchar(30), 
+	nacionalidad varchar(30), 
+	fecha_nacimiento date,
+	constraint jugador_pk primary key (id_jugador), 
+	foreign key (id_equipo) references equipo
 );
 
 
