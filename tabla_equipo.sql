@@ -1,6 +1,9 @@
-create table equipo
-( id_equipo varchar(10), nombre varchar(50), valor_mill numeric(8,2),
- constraint equipo_pk primary key(id_equipo));
+create table equipo(
+	id_equipo varchar(10), 
+	nombre varchar(50), 
+	valor_mill numeric(8,2),
+	constraint equipo_pk primary key(id_equipo)
+);
 
 insert into equipo values('10', 'Manchester City', 1000.05 );
 insert into equipo values('11', 'Arsenal FC', 890.00 );
