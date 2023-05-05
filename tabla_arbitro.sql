@@ -7,6 +7,10 @@ create table arbitro(
 	constraint arbitro_pk primary key(id)
 );
 
+--- Verificamos Datestyle (DD/MM/YY)
+show datestyle
+set datestyle = DMY, SQL;
+
 --- Inserción de datos en la tabla Árbitro
 insert into arbitro values ('101', 'Paul', 'Tierney', '25/12/1980');
 insert into arbitro values ('102', 'Michael', 'Oliver', '20/02/1985');
