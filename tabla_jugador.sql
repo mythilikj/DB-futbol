@@ -190,3 +190,29 @@ insert into jugador values('1853','18',37,'Mateus','Cardoso','Lemos','Martins','
 insert into jugador values('1854','18',20,'Patson',null,'Daka',null,'Zambia','09/10/1998');
 insert into jugador values('1855','18',14,'Kelechi','Promise','Iheanacho',null,'Nigeria','03/10/1996');
 insert into jugador values('1856','18',9,'Jamie','Richard','Vardy',null,'Inglaterra','11/01/1987');
+
+
+// Aston Villa
+insert into jugador values('1957','19',1,'Damian','Emiliano','Martinez','Romero','Argentina','02/09/1992');
+insert into jugador values('1958','19',25,'Robin','Patrick','Olsen',null,'Suecia','08/01/1990');
+insert into jugador values('1959','19',12,'Jed','John','Steer',null,'Inglaterra','23/09/1992');
+insert into jugador values('1960','19',38,'Viljami','Kari','Veikko','Sinisalo','Finlandia','11/10/2001');
+insert into jugador values('1961','19',3,'Diego','Carlos','Santos','Silva','Brasil','15/03/1993');
+insert into jugador values('1962','19',5,'Tyrone','Deon','Mings',null,'Inglaterra','13/03/1993');
+insert into jugador values('1963','19',4,'Ezri','Konza','Ngoyo',null,'Inglaterra','23/10/1997');
+insert into jugador values('1964','19',16,'Calum',null,'Chambers',null,'Inglaterra','20/01/1995');
+insert into jugador values('1965','19',15,'Alexandre',null,'Moreno','Lopera','España','08/06/1993');
+insert into jugador values('1966','19',27,'Lucas',null,'Digne',null,'Francia','20/07/1993');
+insert into jugador values('1967','19',2,'Matthew','Stuart','Cash',null,'Polonia','07/08/1997');
+insert into jugador values('1968','19',18,'Ashley','Simon','Young',null,'Inglaterra','09/07/1985');
+insert into jugador values('1969','19',44,'Boubacar','Bernand','Kamara',null,'Francia','23/11/1999');
+insert into jugador values('1970','19',32,'Leander',null,'Dendoncker',null,'Belgica','15/04/1995');
+insert into jugador values('1971','19',6,'Douglas','Luiz','Soares','de Paulo','Brasil','09/05/1998');
+insert into jugador values('1972','19',41,'Jacob','Matthew','Ramsey',null,'Inglaterra','28/05/2001');
+insert into jugador values('1973','19',7,'John',null,'McGinn',null,'Escocia','18/10/1994');
+insert into jugador values('1974','19',31,'Leon','Patrick','Bailey','Butler','Jamaica','09/08/1997');
+insert into jugador values('1975','19',23,'Philippe',null,'Coutinho','Correia','Brasil','12/06/1992');
+insert into jugador values('1976','19',10,'Emiliano',null,'Buendia','Stati','Argentina','25/12/1996');
+insert into jugador values('1977','19',9,'Bertrand','Isidore','Traoré',null,'Burkina Faso','06/09/1995');
+insert into jugador values('1978','19',11,'Oliver','George','Arthur','Watkins','Inglaterra','30/12/1995');
+insert into jugador values('1979','19',22,'Jhon','Jader','Durán','Palacio','Colombia','13/12/2003');
