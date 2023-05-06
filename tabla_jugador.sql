@@ -162,7 +162,7 @@ insert into jugador values('2970', '29', 24,'Antoine', 'Serlom', 'Semenyo', null
 insert into jugador values('2971', '29', 21,'Kieffer', 'Roberto', 'Francisco', 'Moore', 'Gales', '08/08/1992');
 
 
-// Leicester City
+-- Leicester City
 insert into jugador values('1830','18',1,'Danny',null,'Ward',null,'Gales','22/06/1993');
 insert into jugador values('1831','18',31,'Daniel',' Lønne','Iversen',null,'Dinamarca','19/07/1997');
 insert into jugador values('1832','18',12,'Alexander',null,'Smithies',null,'Inglaterra','05/03/1990');
@@ -192,7 +192,7 @@ insert into jugador values('1855','18',14,'Kelechi','Promise','Iheanacho',null,'
 insert into jugador values('1856','18',9,'Jamie','Richard','Vardy',null,'Inglaterra','11/01/1987');
 
 
-// Aston Villa
+-- Aston Villa
 insert into jugador values('1957','19',1,'Damian','Emiliano','Martinez','Romero','Argentina','02/09/1992');
 insert into jugador values('1958','19',25,'Robin','Patrick','Olsen',null,'Suecia','08/01/1990');
 insert into jugador values('1959','19',12,'Jed','John','Steer',null,'Inglaterra','23/09/1992');
@@ -218,7 +218,7 @@ insert into jugador values('1978','19',11,'Oliver','George','Arthur','Watkins','
 insert into jugador values('1979','19',22,'Jhon','Jader','Durán','Palacio','Colombia','13/12/2003');
 
 
-// Wolverhampton Wanderers
+-- Wolverhampton Wanderers
 insert into jugador values('2080','20',1,'José','Pedro','Malheiro','de Sá','Portugal','17/01/1993');
 insert into jugador values('2081','20',25,'Daniel','Ian','Bentley',null,'Inglaterra','13/07/1993');
 insert into jugador values('2082','20',13,'Louie',null, 'Moulden',null,'Inglaterra','06/01/2002');
