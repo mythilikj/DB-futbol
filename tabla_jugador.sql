@@ -280,3 +280,33 @@ insert into jugador values('2134','21',10,'Ché','Zach','Everton','Fred','Escoci
 insert into jugador values('2135','21',12,'Paul','Ebere','Onuachu',null,'Nigeria','28/05/1994');
 insert into jugador values('2136','21',9,'Adam','James','Armstrong',null,'Inglaterra','10/02/1997');
 insert into jugador values('2137','21',18,'Sékou',null,'Mara',null,'Francia','30/07/2002');
+
+
+-- Brighton & Hove Albion
+insert into jugador values('2238','22',1,'Robert',null,'Sánchez',null,'España','18/11/1997');
+insert into jugador values('2239','22',23,'Jason','Sean','Steele',null,'Inglaterra','18/08/1990');
+insert into jugador values('2240','22',38,'Thomas','Peter','Wayne','McGill','Canadá','25/03/2000');
+insert into jugador values('2241','22',4,'Adam','Harry','Webster',null,'Inglaterra','04/01/1995');
+insert into jugador values('2242','22',5,'Lewis','Carl','Dunk',null,'Inglaterra','21/11/1991');
+insert into jugador values('2243','22',6,'Levi','Lemar','Samuel','Colwill','Inglaterra','26/02/2003');
+insert into jugador values('2244','22',29,'Jan','Paul','van', 'Hecke','Paises Bajos','08/06/2000');
+insert into jugador values('2245','22',30,'Pervis','Josué','Estupiñán','Tenorio','Ecuador','21/01/1998');
+insert into jugador values('2246','22',2,'Tariq','Kwame','Nii-Lante','Lamptey','Ghana','30/09/2000 ');
+insert into jugador values('2247','22',34,'Joël','Ivo','Veltman',null,'Paises Bajos','15/01/1992');
+insert into jugador values('2248','22',25,'Moisés','Isaac','Caicedo','Corozo','Ecuador','02/11/2001');
+insert into jugador values('2249','22',10,'Alexis',null,'Mac','Allister','Argentina','24/12/1998');
+insert into jugador values('2250','22',15,'Jakub','Piotr','Moder',null,'Polonia','07/04/1999');
+insert into jugador values('2251','22',27,'Billy','Clifford','Gilmour',null,'Escocia','11/06/2001');
+insert into jugador values('2252','22',13,'Pascal',null,'Groß',null,'Alemania','15/06/1991');
+insert into jugador values('2253','22',26,'Yasin','Abbas','Ayari',null,'Suecia','06/10/2003');
+insert into jugador values('2254','22',40,'Facundo','Valentín','Buonanotte',null,'Argentina','23/12/2004');
+insert into jugador values('2255','22',19,'Jeremy','Leonel','Sarmiento','Morante','Ecuador','16/06/2002');
+insert into jugador values('2256','22',14,'Adam','David','Lallana',null,'Inglaterra','10/05/1988');
+insert into jugador values('2257','22',22,'Kaoru', null,'Mitoma',null,'Japon','20/05/1997');
+insert into jugador values('2258','22',7,'Solomon','Benjamin','March',null,'Inglaterra','20/07/1994');
+insert into jugador values('2259','22',20,'Julio','César','Enciso',null,'Paraguay','23/01/2004');
+insert into jugador values('2260','22',28,'Evan',null,'Ferguson',null,'Irlanda','19/10/2004');
+insert into jugador values('2261','22',18,'Daniel','Nii-Tackie','Mensah','Welbeck','Inglaterra','26/11/1990');
+insert into jugador values('2262','22',21,'Deniz',null,'Undav',null,'Alemania','19/07/1996');
+
+
