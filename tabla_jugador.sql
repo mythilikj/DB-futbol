@@ -160,3 +160,33 @@ insert into jugador values('2968', '29', 7,'David', 'Robert', 'Brooks', null, 'G
 insert into jugador values('2969', '29', 9,'Dominic', 'Ayodele', 'Solanke-Mitchell', null, 'Inglaterra', '14/09/1997');
 insert into jugador values('2970', '29', 24,'Antoine', 'Serlom', 'Semenyo', null, 'Ghana', '07/01/2000');
 insert into jugador values('2971', '29', 21,'Kieffer', 'Roberto', 'Francisco', 'Moore', 'Gales', '08/08/1992');
+
+
+// Leicester City
+insert into jugador values('1830','18',1,'Danny',null,'Ward',null,'Gales','22/06/1993');
+insert into jugador values('1831','18',31,'Daniel',' Lønne','Iversen',null,'Dinamarca','19/07/1997');
+insert into jugador values('1832','18',12,'Alexander',null,'Smithies',null,'Inglaterra','05/03/1990');
+insert into jugador values('1833','18',3,'Wout',null,'Faes',null,'Belgica','03/04/1998');
+insert into jugador values('1834','18',4,'Çağlar',null,'Söyüncü',null,'Turquia','23/05/1996');
+insert into jugador values('1835','18',15,'Harry','James','Souttar',null,'Australia','22/10/1998');
+insert into jugador values('1836','18',18,'Daniel',null,'Amartey',null,'Ghana','21/12/1994');
+insert into jugador values('1837','18',23,'Jannik',null,'Vestergaard',null,'Dinamarca','03/08/1992');
+insert into jugador values('1838','18',6,'Jonathan','Grant','Evans',null,'Irlanda del Norte','03/01/1988');
+insert into jugador values('1839','18',16,'Victor',null,'Kristiansen',null,'Dinamarca','16/12/2002');
+insert into jugador values('1840','18',33,'Luke','Jonathan','Thomas',null,'Inglaterra','10/06/2001');
+insert into jugador values('1841','18',5,'Ryan','Dominic','Bertrand',null,'Inglaterra','05/08/1989');
+insert into jugador values('1842','18',27,'Timothy',null,'Castagne',null,'Belgica','05/12/1995');
+insert into jugador values('1843','18',2,'James','Michael','Justin',null,'Inglaterra','23/02/1998');
+insert into jugador values('1844','18',21,'Ricardo','Domingos','Barbosa','Pereira','Portugal','06/10/1993');
+insert into jugador values('1845','18',25,'Onyinye','Wilfred','Ndidi',null,'Nigeria','16/12/1996');
+insert into jugador values('1846','18',42,'Boubakary',null,'Soumaré',null,'Francia','27/02/1999');
+insert into jugador values('1847','18',24,'Nampalys',null,'Mendy',null,'Senegal','23/06/1992');
+insert into jugador values('1848','18',8,'Youri',null,'Tielemans',null,'Belgica','07/05/1997');
+insert into jugador values('1849','18',22,'Kiernan','Frank','Dewsbury-Hall', null,'Inglaterra','06/09/1998');
+insert into jugador values('1850','18',26,'Dennis',null,'Praet',null,'Belgica','14/05/1994');
+insert into jugador values('1851','18',10,'James','Daniel','Maddison',null,'Inglaterra','23/11/1996');
+insert into jugador values('1852','18',7,'Harvey','Lewis','Barnes',null,'Inglaterra','09/12/1997');
+insert into jugador values('1853','18',37,'Mateus','Cardoso','Lemos','Martins','Brasil','15/02/2000');
+insert into jugador values('1854','18',20,'Patson',null,'Daka',null,'Zambia','09/10/1998');
+insert into jugador values('1855','18',14,'Kelechi','Promise','Iheanacho',null,'Nigeria','03/10/1996');
+insert into jugador values('1856','18',9,'Jamie','Richard','Vardy',null,'Inglaterra','11/01/1987');
