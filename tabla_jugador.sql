@@ -216,3 +216,34 @@ insert into jugador values('1976','19',10,'Emiliano',null,'Buendia','Stati','Arg
 insert into jugador values('1977','19',9,'Bertrand','Isidore','Traoré',null,'Burkina Faso','06/09/1995');
 insert into jugador values('1978','19',11,'Oliver','George','Arthur','Watkins','Inglaterra','30/12/1995');
 insert into jugador values('1979','19',22,'Jhon','Jader','Durán','Palacio','Colombia','13/12/2003');
+
+
+// Wolverhampton Wanderers
+insert into jugador values('2080','20',1,'José','Pedro','Malheiro','de Sá','Portugal','17/01/1993');
+insert into jugador values('2081','20',25,'Daniel','Ian','Bentley',null,'Inglaterra','13/07/1993');
+insert into jugador values('2082','20',13,'Louie',null, 'Moulden',null,'Inglaterra','06/01/2002');
+insert into jugador values('2083','20',23,'Maximilian','William','Kilman',null,'Inglaterra',' 23/05/1997');
+insert into jugador values('2084','20',4,'Nathan','Michael','Collins',null,'Irlanda','30/04/2001');
+insert into jugador values('2085','20',15,'Craig',null,'Dawson',null,'Inglaterra','06/05/1990');
+insert into jugador values('2086','20',24,'Tote','António','Gomes',null,'Portugal','16/01/1999');
+insert into jugador values('2087','20',3,'Rayan',null,'Aït-Nouri',null,'Argelia','06/06/2001');
+insert into jugador values('2088','20',19,'Jonathan','Castro','Otto',null,'España','03/03/1994');
+insert into jugador values('2089','20',64,'Hugo','Bueno','López',null,'España','18/09/2002');
+insert into jugador values('2090','20',22,'Nélson',null,'Cabral', 'Semedo','Portugal','16/11/1993');
+insert into jugador values('2091','20',8,'Rúben','Diogo','da Silva', 'Neves','Portugal','13/03/1997');
+insert into jugador values('2092','20',5,'Mario','René','Junior','Lemina','Gabón','01/09/1993');
+insert into jugador values('2093','20',6,'Boubacar',null,'Traoré',null,'Malí','20/08/2001');
+insert into jugador values('2094','20',59,'Joseph','Shaun','Hodge',null,'Irlanda','14/09/2002');
+insert into jugador values('2095','20',27,'Matheus','Luiz','Nunes',null,'Portugal','27/08/1998');
+insert into jugador values('2096','20',35,'João','Victor','Gomes','da Silva','Brasil','12/02/2001');
+insert into jugador values('2097','20',28,'João','Filipe','Santos','Moutinho','Portugal','08/09/1986');
+insert into jugador values('2098','20',10,'Daniel',null,'Castelo','Podence','Portugal','21/10/1995');
+insert into jugador values('2099','20',20,'Francisco','Jorge','Tavares','Oliveira','Portugal','05/02/2000');
+insert into jugador values('2000','20',7,'Pedro',null,'Lomba','Neto','Portugal','09/03/2000');
+insert into jugador values('2001','20',21,'Pablo',null,'Sarabia','García','España','11/05/1992');
+insert into jugador values('2002','20',37,'Adama',null,'Traoré','Diarra','España','25/01/1996');
+insert into jugador values('2003','20',12,'Matheus','Santos','Carneiro','da Cunha','Brasil','27/05/1999');
+insert into jugador values('2004','20',18,'Saša',null,'Kalajdžić',null,'Austria','07/07/1997');
+insert into jugador values('2005','20',11,'Hee-chan', null,'Hwang',null,'Corea del Sur','26/01/1996');
+insert into jugador values('2006','20',9,'Raúl','Alonso','Jiménez','Rodríguez','Mexico','05/05/1991');
+insert into jugador values('2007','20',29,'Diego',null,'da Silva','Costa','España','07/10/1988');
