@@ -132,6 +132,58 @@ insert into jugador values('2561', '25', 24,'Mikkel', 'Krogh', 'Damsgaard', null
 insert into jugador values('2562', '25', 19,'Kevin', null, 'Schade', null, 'Alemania', '27/11/2001');
 insert into jugador values('2563', '25', 9,'Ivan', 'Benjamin', 'Elijah', 'Toney', 'Inglaterra', '16/03/1996');
 
+--Leeds
+insert into jugador values('2675', '26', 1,'Illan', 'Stéphane', 'Meslier', null, 'Francia', '02/03/2000');
+insert into jugador values('2676', '26', 13,'Kristoffer-August', 'Sundquist', 'Klaesson', null, 'Noruega', '27/11/2000');
+insert into jugador values('2677', '26', 22,'Joel', null, 'Robles', 'Blázquez', 'España', '17/06/1990');
+insert into jugador values('2678', '26', 5,'Robin', 'Leon', 'Koch', null, 'Alemania', '17/07/1996');
+insert into jugador values('2679', '26', 39,'Maximilian', null, 'Wöber', null, 'Austria', '04/02/1998');
+insert into jugador values('2680', '26', 6,'Liam', 'David', 'Ian', 'Cooper', 'Escocia', '30/08/1991');
+insert into jugador values('2681', '26', 21,'Pascal', 'Augustus', 'Struijk', null, 'Países Bajos', '11/08/1999');
+insert into jugador values('2682', '26', 3,'Héctor', 'Junior', 'Firpo', 'Adamés', 'República Dominicana', '22/08/1996');
+insert into jugador values('2683', '26', 25,'Rasmus', 'Nissen', 'Kristensen', null, 'Dinamarca', '11/07/1997');
+insert into jugador values('2684', '26', 2,'Luke', 'David', 'Ayling', null, 'Inglaterra', '25/08/1991');
+insert into jugador values('2685', '26', 15,'Stuart', 'Alan', 'Dallas', null, 'Irlanda del Norte', '19/04/1991');
+insert into jugador values('2686', '26', 12,'Tyler', 'Shaan', 'Adams', null, 'Estados Unidos', '14/02/1999');
+insert into jugador values('2687', '26', 8,'Marc', null, 'Roca', 'Junqué', 'España', '26/11/1996');
+insert into jugador values('2688', '26', 28,'Weston', 'James', 'Earl', 'McKennie', 'Estados Unidos', '28/08/1998');
+insert into jugador values('2689', '26', 4,'Adam', 'John', 'Forshaw', null, 'Inglaterra', '08/10/1991');
+insert into jugador values('2690', '26', 7,'Brenden', 'Russell', 'Aaronson', null, 'Estados Unidos', '22/10/2000');
+insert into jugador values('2691', '26', 42,'Sam', null, 'Greenwood', null, 'Inglaterra', '26/01/2002');
+insert into jugador values('2692', '26', 11,'Jack', 'David', 'Harrison', null, 'Inglaterra', '20/11/1996');
+insert into jugador values('2693', '26', 23,'Luis', 'Fernando', 'Sinisterra', 'Lucumí', 'Colombia', '17/06/1999');
+insert into jugador values('2694', '26', 29,'Degnand', 'Wilfried', 'Gnonto', null, 'Italia', '05/11/2003');
+insert into jugador values('2695', '26', 10,'Crysencio', 'Jilbert', 'Sylverio', null, 'Países Bajos', '30/10/2001');
+insert into jugador values('2696', '26', 24,'Georginio', null, 'Rutter', null, 'Francia', '20/04/2002');
+insert into jugador values('2697', '26', 9,'Patrick', 'James', 'Bamford', null, 'Inglaterra', '05/09/1993');
+insert into jugador values('2698', '26', 19,'Rodrigo', null, 'Moreno', 'Machado', 'España', '06/03/1991');
+--Crystal Palace
+insert into jugador values('2760', '27', 21,'Samuel', 'Luke', 'Johnstone', null, 'Inglaterra', '25/03/1993');
+insert into jugador values('2761', '27', 13,'Vicente', null, 'Guaita', 'Panadero', 'España', '10/01/1987');
+insert into jugador values('2762', '27', 41,'Joseph', 'Charles', 'Whitworth', null, 'Inglaterra', '29/02/2004');
+insert into jugador values('2763', '27', 6,'Addji', 'Keaninkin', 'Marc-Israel', 'Guéhi', 'Inglaterra', '13/07/2000');
+insert into jugador values('2764', '27', 16,'Joachim', 'Christian', 'Andersen', null, 'Dinamarca', '31/05/1996');
+insert into jugador values('2765', '27', 26,'Christopher', 'Jeffrey', 'Richards', null, 'Estados Unidos', '28/03/2000');
+insert into jugador values('2766', '27', 36,'Nathan', 'Kirk-Patrick', 'Ferguson', null, 'Inglaterra', '06/10/2000');
+insert into jugador values('2767', '27', 5,'James', 'Oliver', 'Charles', 'Tomkins', 'Inglaterra', '29/03/1989');
+insert into jugador values('2768', '27', 3,'Tyrick', null, 'Mitchell', null, 'Inglaterra', '01/09/1999');
+insert into jugador values('2769', '27', 17,'Nathaniel', 'Edwin', 'Clyne', null, 'Inglaterra', '05/04/1991');
+insert into jugador values('2770', '27', 2,'Joel', 'Edward', 'Philip', 'Ward', 'Inglaterra', '29/10/1989');
+insert into jugador values('2771', '27', 28,'Cheick', 'Oumar', 'Doucouré', null, 'Malí', '08/01/2000');
+insert into jugador values('2772', '27', 44,'Jaïro', 'Jocquim', 'Riedewald', null, 'Países Bajos', '09/09/1996');
+insert into jugador values('2773', '27', 4,'Luka', 'null', 'Milivojevic', null, 'Serbia', '07/04/1991');
+insert into jugador values('2774', '27', 8,'Albert', 'Mboyo', 'Sambi', 'Lokonga', 'Bélgica', '22/10/1999');
+insert into jugador values('2775', '27', 29,'Naouirou', 'Mohamed', 'Ahamada', null, 'Francia', '29/03/2002');
+insert into jugador values('2776', '27', 19,'William', 'James', 'Hughes', null, 'Inglaterra', '17/04/1995');
+insert into jugador values('2777', '27', 18,'James', null, 'McArthur', null, 'Escocia', '07/10/1987');
+insert into jugador values('2778', '27', 15,'Jeffrey', null, 'Schlupp', null, 'Ghana', '23/12/1992');
+insert into jugador values('2779', '27', 10,'Eberechi', 'Oluchi', 'Eze', null, 'Inglaterra', '29/06/1998');
+insert into jugador values('2780', '27', 11,'Dazet', 'Wilfried', 'Armel', 'Zaha', 'Costa de Marfil', '10/11/1992');
+insert into jugador values('2781', '27', 7,'Michael', 'Akpovie', 'Olise', null, 'Francia', '12/12/2001');
+insert into jugador values('2782', '27', 22,'Odsonne', null, 'Edouard', null, 'Francia', '16/01/1998');
+insert into jugador values('2783', '27', 14,'Jean-Philippe', null, 'Mateta', null, 'Francia', '28/06/1997');
+insert into jugador values('2784', '27', 9,'Jordan', 'Pierre', 'Ayew', null, 'Ghana', '11/09/1991');
+
 // AFC Bournemouth
 insert into jugador values('2945', '29', 13,'Norberto', null, 'Murara', null, 'Brasil', '19/07/1989');
 insert into jugador values('2946', '29', 1,'Mark', null, 'Travers', null, 'Irlanda', '18/05/1999');
