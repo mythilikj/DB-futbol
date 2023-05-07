@@ -1,6 +1,6 @@
 --- Creación de tabla Árbitro
 create table arbitro(
-	id varchar(30),
+	id varchar(10),
 	primer_nombre varchar(30),
 	primer_apellido varchar(40),
 	fecha_nacimiento date,
