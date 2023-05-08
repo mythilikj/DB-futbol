@@ -214,6 +214,30 @@ insert into jugador values ('1665', '16', 23, 'Jacob', 'Kai', 'Murphy', null, 'I
 insert into jugador values ('1666', '16', 14, 'Alexander', null, 'Isak', null, 'Suecia', '21/09/1999');
 insert into jugador values ('1667', '16', 9, 'Callum', 'Eddie', 'Wilson', null, 'Inglaterra', '27/02/1992');
 
+--- West Ham United (17)
+insert into jugador values ('1768', '17', 13, 'Alphonse', 'Francis', 'Aréola', null, 'Francia', '27/02/1993');
+insert into jugador values ('1769', '17', 1, 'Łukasz', 'Marek', 'Fabiański', null, 'Polonia', '18/04/1985');
+insert into jugador values ('1770', '17', 27, 'Nayef', null, 'Aguerd', null, 'Marruecos', '30/03/1996');
+insert into jugador values ('1771', '17', 4, 'Kurt', 'Happy', 'Zouma', null, 'Francia', '27/10/1994');
+insert into jugador values ('1772', '17', 24, 'Jan', 'Thilo', 'Kehrer', null, 'Alemania', '21/09/1996');
+insert into jugador values ('1773', '17', 21, 'Angelo', 'Obinze', 'Ogbonna', null, 'Italia', '23/05/1988');
+insert into jugador values ('1774', '17', 33, 'Emerson', null, 'Palmieri', 'dos Santos', 'Brasil', '03/08/1994');
+insert into jugador values ('1775', '17', 3, 'Aaron', 'William', 'Cresswell', null, 'Inglaterra', '15/12/1989');
+insert into jugador values ('1776', '17', 2, 'Benjamin', 'Anthony', 'Johnson', null, 'Inglaterra', '24/01/2000');
+insert into jugador values ('1777', '17', 5, 'Vladimir', null, 'Coufal', null, 'República Checa', '22/08/1992');
+insert into jugador values ('1778', '17', 41, 'Declan', null, 'Rice', null, 'Inglaterra', '14/01/1999');
+insert into jugador values ('1779', '17', 28, 'Tomáš', null, 'Souček', null, 'República Checa', '27/02/1995');
+insert into jugador values ('1780', '17', 12, 'Flynn', null, 'Downes', null, 'Inglaterra', '20/01/1999');
+insert into jugador values ('1781', '17', 11, 'Lucas', 'Tolentino', 'Coelho', 'de Lima', 'Brasil', '27/08/1997');
+insert into jugador values ('1782', '17', 8, 'Pablo', null, 'Fornals', 'Malla', 'España', '22/02/1996');
+insert into jugador values ('1783', '17', 10, 'Manuel', null, 'Lanzini', null, 'Argentina', '15/02/1993');
+insert into jugador values ('1784', '17', 22, 'Mohamed', 'Saïd', 'Benrahma', null, 'Argelia', '10/08/1995');
+insert into jugador values ('1785', '17', 14, 'Gnaly', 'Maxwel', 'Cornet', null, 'Costa de Marfil', '27/09/1996');
+insert into jugador values ('1786', '17', 20, 'Jarrod', null, 'Bowen', null, 'Inglaterra', '20/12/1996');
+insert into jugador values ('1787', '17', 7, 'Gianluca', null, 'Scamacca', null, 'Italia', '01/01/1999');
+insert into jugador values ('1788', '17', 18, 'Daniel', 'William', 'Ings', null, 'Inglaterra', '23/07/1992');
+insert into jugador values ('1789', '17', 9, 'Michail', 'Gregory', 'Antonio', null, 'Inglaterra', '28/03/1990');
+
 // Nottingham Forest
 insert into jugador values('2465', '24', 1,'Dean', 'Bradley', 'Henderson', null, 'Inglaterra', '12/03/1997');
 insert into jugador values('2466', '24', 12,'Keilor', 'Antonio', 'Navas', 'Gamboa', 'Costa Rica', '15/12/1986');
