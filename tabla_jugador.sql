@@ -238,7 +238,7 @@ insert into jugador values ('1787', '17', 7, 'Gianluca', null, 'Scamacca', null,
 insert into jugador values ('1788', '17', 18, 'Daniel', 'William', 'Ings', null, 'Inglaterra', '23/07/1992');
 insert into jugador values ('1789', '17', 9, 'Michail', 'Gregory', 'Antonio', null, 'Inglaterra', '28/03/1990');
 
-// Nottingham Forest
+-- Nottingham Forest
 insert into jugador values('2465', '24', 1,'Dean', 'Bradley', 'Henderson', null, 'Inglaterra', '12/03/1997');
 insert into jugador values('2466', '24', 12,'Keilor', 'Antonio', 'Navas', 'Gamboa', 'Costa Rica', '15/12/1986');
 insert into jugador values('2467', '24', 13,'Wayne', 'Robert', 'Hennessey', null, 'Gales', '24/01/1987');
@@ -274,7 +274,7 @@ insert into jugador values('2496', '24', 39,'Christopher', 'Grant', 'Wood', null
 insert into jugador values('2497', '24', 16,'Samuel', 'William', 'Surridge', null, 'Inglaterra', '28/07/1998');
 insert into jugador values('2498', '24', 33,'Lyle', 'James', 'Alfred', 'Taylor', 'Montserrat', '29/03/1990');
 
-// BRENTFORD FC
+-- BRENTFORD FC
 insert into jugador values('2540', '25', 1,'David', 'Raya', 'Martin', null, 'España', '15/09/1995');
 insert into jugador values('2541', '25', 22,'Thomas', 'Fotaq', 'Strakosha', null, 'Albania', '19/03/1995');
 insert into jugador values('2542', '25', 34,'Matthew', null, 'Cox', null, 'Inglaterra', '02/05/2003');
@@ -378,7 +378,7 @@ insert into jugador values('2871', '28', 21,'Daniel', 'Owen', 'James', null, 'Ga
 insert into jugador values('2872', '28', 9,'Aleksandar', null, 'Mitrović', null, 'Serbia', '16/09/1994');
 insert into jugador values('2873', '28', 30,'Carlos', 'Vinicius', 'Alves', 'Morais', 'Brasil', '25/03/1995');
 
-// AFC Bournemouth
+-- AFC Bournemouth
 insert into jugador values('2945', '29', 13,'Norberto', null, 'Murara', null, 'Brasil', '19/07/1989');
 insert into jugador values('2946', '29', 1,'Mark', null, 'Travers', null, 'Irlanda', '18/05/1999');
 insert into jugador values('2947', '29', 12,'Darren', 'Edward', 'Andrew', 'Randolph', 'Irlanda', '12/05/1987');
