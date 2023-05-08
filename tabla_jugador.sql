@@ -1,4 +1,3 @@
-
 create table jugador(
 	id_jugador varchar(10), 
 	id_equipo varchar(10), 
@@ -14,7 +13,7 @@ create table jugador(
 );
 
 
-//Manchester City
+--- Manchester City (10)
 insert into jugador values('1030', '10', 31, 'Ederson', null, 'Santana', 'De Moraes','Brasil', '17/08/1993' );
 insert into jugador values('1031', '10', 18, 'Stefan', null, 'Ortega', 'Moreno','Alemania', '06/11/1992' );
 insert into jugador values('1032', '10', 33, 'Scott', 'Paul', 'Carson', null,'Inglaterra', '03/09/1985' );
@@ -37,10 +36,32 @@ insert into jugador values('1048', '10', 26, 'Riyad', null , 'Mahrez', null ,'Ar
 insert into jugador values('1049', '10', 9, 'Erling', 'Braut' , 'Haland', null ,'Noruega','21/07/2000' );
 insert into jugador values('1050', '10', 19, 'Julian', null , 'Alvaréz', null ,'Argentina','31/01/2000' );
 
+--- Arsenal FC (11)
+insert into jugador values ('1130', '11', 1, 'Aaron', 'Christopher', 'Ramsdale', null, 'Inglaterra', '14/05/1998');
+insert into jugador values ('1131', '11', 30, 'Matthew', 'Charles', 'Turner', null, 'Estados Unidos', '24/06/1994');
+insert into jugador values ('1132', '11', 12, 'William', 'Alain', 'Gabriel ', 'Saliba', 'Francia', '24/03/2001');
+insert into jugador values ('1133', '11', 6, 'Gabriel', null, 'dos Santos', 'Magalhães', 'Brasil', '19/12/1997');
+insert into jugador values ('1134', '11', 15, 'Jakub', 'Piotr', 'Kiwior', null, 'Polonia', '15/02/2000');
+insert into jugador values ('1135', '11', 16, 'Robert', 'Samuel', 'Holding', null, 'Inglaterra', '20/09/1995');
+insert into jugador values ('1136', '11', 35, 'Oleksandr', null, 'Zinchenko', null, 'Ucrania', '15/12/1996');
+insert into jugador values ('1137', '11', 3, 'Kieran', null, 'Tierney', null, 'Isla de Man', '05/06/1997');
+insert into jugador values ('1138', '11', 4, 'Benjamin', 'William', 'White', null, 'Inglaterra', '08/10/1997');
+insert into jugador values ('1139', '11', 18, 'Takehiro', null, 'Tomiyasu', null, 'Japón', '05/11/1998');
+insert into jugador values ('1140', '11', 5, 'Thomas', 'Teye', 'Partey', null, 'Ghana', '13/06/1993');
+insert into jugador values ('1141', '11', 20, 'Jorge', 'Luiz', 'Frello', 'Filho', 'Brasil', '20/12/1991');
+insert into jugador values ('1142', '11', 25, 'Mohamed', 'Naser', 'Elneny', null, 'Mahalla', '11/07/1992');
+insert into jugador values ('1143', '11', 34, 'Granit', null, 'Xhaka', null, 'Suiza', '27/09/1992');
+insert into jugador values ('1144', '11', 8, 'Martin ', null, 'Ødegaard', null, 'Noruega', '17/12/1998');
+insert into jugador values ('1145', '11', 10, 'Emile', 'Smith', 'Rowe', null, 'Inglaterra', '28/07/2000');
+insert into jugador values ('1146', '11', 21, 'Fábio', 'Daniel', 'Ferreira', 'Vieira', 'Portugal', '30/05/2000');
+insert into jugador values ('1147', '11', 11, 'Gabriel', 'Teodoro', 'Martinelli', 'Silva', 'Brasil', '18/06/2001');
+insert into jugador values ('1148', '11', 19, 'Leandro', null, 'Trossard', null, 'Bélgica', '04/12/1994');
+insert into jugador values ('1149', '11', 7, 'Bukayo', null, 'Saka', null, 'Inglaterra', '05/09/2001');
+insert into jugador values ('1150', '11', 24, 'Reiss', 'Luke', 'Nelson', null, 'Inglaterra', '10/12/1999');
+insert into jugador values ('1151', '11', 9, 'Gabriel', 'Fernando', 'de Jesus', null, 'Brasil', '03/04/1997');
+insert into jugador values ('1152', '11', 14, 'Edward', 'Keddar', 'Nketiah', null, 'Inglaterra', '30/05/1999');
 
-//	##CHELSEA FC
-
-
+--- Chelsea FC (12)
 insert into jugador values('1250', '12', 16, 'Edouard', 'Osuque' , 'Mendy', null ,'Senegal','01/03/1992' );
 insert into jugador values('1251', '12', 1, 'Kepa', null , 'Arrizabalaga', 'Revuelta' ,'España','03/10/1994' );
 insert into jugador values('1252', '12', 33, 'Wesley', null , 'Fofana', null ,'Francia','17/12/2000' );
