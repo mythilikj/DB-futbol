@@ -91,6 +91,38 @@ insert into jugador values('1275', '12', 11, 'Joao', 'Felix','Sequeira', null ,'
 insert into jugador values('1276', '12', 18, 'Armando', null,'Broja', null ,'Albania','10/09/2001');
 insert into jugador values('1277', '12', 9, 'Pierre', 'Emerik','Emiliano', 'Francois' ,'Gabon','18/06/1989');
 
+--- Liverpool FC (13)
+insert into jugador values ('1353', '13', 1, 'Alisson', 'Ramses', 'Becker', null, 'Brasil', '02/10/1992');
+insert into jugador values ('1354', '13', 62, 'Caoimhín', 'Odhran', 'Kelleher', null, 'Irlanda', '23/11/1998');
+insert into jugador values ('1355', '13', 13, 'Adrián', 'San Miguel', 'del Castillo', null, 'España', '03/01/1987');
+insert into jugador values ('1356', '13', 4, 'Virgil', null, 'del Castillo', null, 'Países Bajos', '08/07/1991');
+insert into jugador values ('1357', '13', 5, 'Ibrahima', null, 'Konaté', null, 'Francia', '25/05/1999');
+insert into jugador values ('1358', '13', 2, 'Joseph', 'Dave', 'Gomez', null, 'Inglaterra', '23/05/1997');
+insert into jugador values ('1359', '13', 32, 'Joel', 'André', 'Matip', 'Job', 'Alemania', '08/08/1991');
+insert into jugador values ('1360', '13', 47, 'Nathaniel', 'Harry', 'Phillips', null, 'Inglaterra', '21/03/1997');
+insert into jugador values ('1361', '13', 46, 'Rhys', null, 'Williams', null, 'Inglaterra', '03/02/2001');
+insert into jugador values ('1362', '13', 26, 'Andrew', 'Henry', 'Robertson', null, 'Escocia', '11/03/1994');
+insert into jugador values ('1363', '13', 21, 'Konstantinos', null, 'Tsimikas', null, 'Grecia', '12/05/1996');
+insert into jugador values ('1364', '13', 66, 'Trent', 'John', 'Alexander', 'Arnold', 'Inglaterra', '07/10/1998');
+insert into jugador values ('1365', '13', 22, 'Calvin', 'William', 'Ramsay', null, 'Escocia', '31/07/2003');
+insert into jugador values ('1366', '13', 3, 'Fabio', 'Henrique', 'Tavares', null, 'Brasil', '23/10/1993');
+insert into jugador values ('1367', '13', 43, 'Stefan', null, 'Bajčetić', 'Maquieira', 'España', '22/10/2004');
+insert into jugador values ('1368', '13', 6, 'Thiago', null, 'Alcántara', 'do Nascimento', 'Brasil', '11/04/1991');
+insert into jugador values ('1369', '13', 8, 'Naby', 'Laye', 'Keïta', null, 'Guinea', '10/02/1995');
+insert into jugador values ('1370', '13', 17, 'Curtis', null, 'Jones', null, 'Inglaterra', '30/01/2001');
+insert into jugador values ('1371', '13', 29, 'Arthur', 'Henrique', 'Ramos', 'de Oliveira', 'Brasil', '12/08/1996');
+insert into jugador values ('1372', '13', 14, 'Jordan', 'Brian', 'Henderson	', null, 'Inglaterra', '17/06/1990');
+insert into jugador values ('1373', '13', 15, 'Alexander', 'Mark', 'Oxlade', 'Chamberlain', 'Inglaterra', '15/08/1993');
+insert into jugador values ('1374', '13', 7, 'James', 'Philip', 'Milner', null, 'Inglaterra', '04/01/1986');
+insert into jugador values ('1375', '13', 19, 'Harvey', 'Scott', 'Elliott', null, 'Inglaterra', '04/04/2003');
+insert into jugador values ('1376', '13', 28, 'Fábio', 'Leandro', 'Carvalho', null, 'Portugal', '30/08/2002');
+insert into jugador values ('1377', '13', 23, 'Luis', 'Fernando', 'Díaz', 'Marulanda', 'Colombia', '13/06/1997');
+insert into jugador values ('1378', '13', 18, 'Cody', 'Mathès', 'Gakpo', null, 'Países Bajos', '07/05/1999');
+insert into jugador values ('1379', '13', 20, 'Diogo', 'José', 'Teixeira', 'da Silva', 'Portugal', '04/12/1996');
+insert into jugador values ('1380', '13', 11, 'Mohamed', 'Salah', 'Hamed', 'Ghaly', 'Egipto', '15/06/1992');
+insert into jugador values ('1381', '13', 27, 'Darwin', 'Gabriel', 'Núñez', 'Ribeiro', 'Uruguay', '24/06/1999');
+insert into jugador values ('1382', '13', 9, 'Roberto', 'Firmino', 'Barbosa', 'de Oliveira', 'Brasil', '02/10/1991');
+
 // Nottingham Forest
 insert into jugador values('2465', '24', 1,'Dean', 'Bradley', 'Henderson', null, 'Inglaterra', '12/03/1997');
 insert into jugador values('2466', '24', 12,'Keilor', 'Antonio', 'Navas', 'Gamboa', 'Costa Rica', '15/12/1986');
