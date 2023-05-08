@@ -2,7 +2,7 @@ create table partido
 (codigo_jornada varchar(10), id_local varchar(10), id_visitante varchar(10),
  goles_local integer, goles_visitante integer, id_arbitro varchar(10),
  resultado integer,
- constraint partido_pk primary key (codigo_jornada, id_local, id_visitante),
+ constraint partido_pk primary key (codigo_jornada),
  foreign key (id_local) references equipo,
  foreign key (id_visitante) references equipo,
  foreign key (id_arbitro) references arbitro
