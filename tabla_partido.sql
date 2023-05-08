@@ -30,8 +30,6 @@ insert into partido values('0208', '24', '17', 1, 0, '105', 1);
 insert into partido values('0209', '12', '15', 2, 2, '103', 0);
 insert into partido values('0210', '13', '27', 1, 1, '101', 0);
 
-
-
 insert into partido values('0301', '15' , '20', 1 , 0 , '104', 1 );
 insert into partido values('0302', '27' , '19', 3 , 1 , '107', 1 );
 insert into partido values('0303', '23' , '24', 1 , 1 , '115', 0 );
@@ -55,3 +53,15 @@ insert into partido values('0407', '11' , '29', 2 , 1 , '112', 1 );
 insert into partido values('0408', '19' , '17', 0 , 1 , '109', 2 );
 insert into partido values('0409', '20' , '16', 1 , 1 , '110', 0 );
 insert into partido values('0410', '24' , '15', 0 , 2 , '108', 2 );
+
+
+insert into partido values('0501', '28', '22', 2, 1, '119', 1);
+insert into partido values('0502', '27', '25', 1, 1, '104', 0);
+insert into partido values('0503', '21', '12', 2, 1, '102', 1);
+insert into partido values('0504', '26', '23', 1, 1, '111', 0);
+insert into partido values('0505', '29', '20', 0, 0 ,'103', 0);
+insert into partido values('0506', '11', '19', 2, 1, '105', 1);
+insert into partido values('0507', '10', '24', 6, 0, '101', 1);
+insert into partido values('0508', '17', '15', 1, 1, '110', 0);
+insert into partido values('0509', '13', '16', 2, 1, '115', 1);
+insert into partido values('0510', '18', '14', 0, 1, '108', 2);
