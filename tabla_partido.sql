@@ -1,3 +1,37 @@
+create table partido
+(codigo_jornada varchar(10), id_local varchar(10), id_visitante varchar(10),
+ goles_local integer, goles_visitante integer, id_arbitro varchar(10),
+ resultado integer,
+ constraint partido_pk primary key (codigo_jornada, id_local, id_visitante),
+ foreign key (id_local) references equipo,
+ foreign key (id_visitante) references equipo,
+ foreign key (id_arbitro) references arbitro
+);
+
+insert into partido values('0101', '27', '11', 0, 2, '103', 2);
+insert into partido values('0102', '28', '13', 2, 2, '107', 0);
+insert into partido values('0103', '15', '21', 4, 1, '115', 1);
+insert into partido values('0104', '16', '24', 2, 0, '104', 1);
+insert into partido values('0105', '26', '20', 2, 1, '105', 1);
+insert into partido values('0106', '29', '19', 2, 0, '110', 1);
+insert into partido values('0107', '23', '12', 0, 1, '108', 2);
+insert into partido values('0108', '18', '25', 2, 2, '112', 0);
+insert into partido values('0109', '14', '22', 1, 2, '101', 2);
+insert into partido values('0110', '17', '10', 0, 2, '102', 2);
+
+insert into partido values('0201', '19', '23', 2, 1, '102', 1);
+insert into partido values('0202', '20', '28', 0, 0, '113', 0);
+insert into partido values('0203', '21', '26', 2, 2, '118', 0);
+insert into partido values('0204', '10', '29', 4, 0, '109', 1);
+insert into partido values('0205', '22', '16', 0, 0, '117', 0);
+insert into partido values('0206', '11', '18', 4, 2, '111', 1);
+insert into partido values('0207', '25', '14', 4, 0, '106', 1);
+insert into partido values('0208', '24', '17', 1, 0, '105', 1);
+insert into partido values('0209', '12', '15', 2, 2, '103', 0);
+insert into partido values('0210', '13', '27', 1, 1, '101', 0);
+
+
+
 insert into partido values('0301', '15' , '20', 1 , 0 , '104', 1 );
 insert into partido values('0302', '27' , '19', 3 , 1 , '107', 1 );
 insert into partido values('0303', '23' , '24', 1 , 1 , '115', 0 );
