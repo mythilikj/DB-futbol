@@ -9,4 +9,4 @@ create table estadio(
 );
 
 COPY estadio(codigo_estadio, nombre, capacidad, ciudad, id_equipo_equipo)
-		   FROM 'C:\Users\Public\Downloads\tabla_estadio.csv' DELIMITER ';' CSV HEADER;
+		   FROM 'C:\Users\Public\Downloads\datos_estadio.csv' DELIMITER ';' CSV HEADER;
