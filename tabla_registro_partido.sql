@@ -455,13 +455,5 @@ insert into registro_partido (id_jugador, codigo_jornada,accion) values('1486', 
 insert into registro_partido (id_jugador, codigo_jornada,accion) values('1851', '0510', 'AMARILLA');
 
 
-insert into registro_partido (id_jugador, codigo_jornada,accion) values('1538', '0410', 'GOL');
-insert into registro_partido (id_jugador, codigo_jornada,accion) values('1538', '0410', 'GOL');
-insert into registro_partido (id_jugador, codigo_jornada,accion) values('2472', '0410', 'AMARILLA');
-insert into registro_partido (id_jugador, codigo_jornada,accion) values('2470', '0410', 'AMARILLA');
-insert into registro_partido (id_jugador, codigo_jornada,accion) values('2469', '0410', 'AMARILLA');
-insert into registro_partido (id_jugador, codigo_jornada,accion) values('2493', '0410', 'AMARILLA');
-insert into registro_partido (id_jugador, codigo_jornada,accion) values('1538', '0410', 'AMARILLA');
-insert into registro_partido (id_jugador, codigo_jornada,accion) values('2481', '0410', 'AMARILLA');
-insert into registro_partido (id_jugador, codigo_jornada,accion) values('2489', '0410', 'AMARILLA');
+
 
