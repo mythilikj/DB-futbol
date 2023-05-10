@@ -181,3 +181,104 @@ insert into registro_partido (id_jugador, codigo_jornada,accion) values('2770', 
 insert into registro_partido (id_jugador, codigo_jornada,accion) values('2782', '0210', 'AMARILLA');
 insert into registro_partido (id_jugador, codigo_jornada,accion) values('2761', '0210', 'AMARILLA');
 insert into registro_partido (id_jugador, codigo_jornada,accion) values('1363', '0210', 'AMARILLA');
+
+
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1538', '0301', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1528', '0301', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2087', '0301', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1538', '0301', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2084', '0301', 'AMARILLA');
+
+
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1978', '0302', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2780', '0302', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2780', '0302', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2783', '0302', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1973', '0302', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2780', '0302', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2778', '0302', 'AMARILLA');
+
+
+
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2489', '0303', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2382', '0303', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2470', '0303', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1661', '0303', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2477', '0303', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2381', '0303', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2376', '0303', 'AMARILLA');
+
+
+
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2866', '0304', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2860', '0304', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2553', '0304', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2563', '0304', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2872', '0304', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2860', '0304', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2858', '0304', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2555', '0304', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2546', '0304', 'AMARILLA');
+
+
+
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1851', '0305', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2134', '0305', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2134', '0305', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2129', '0305', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1854', '0305', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2127', '0305', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1851', '0305', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2121', '0305', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1851', '0305', 'GOL');
+
+
+
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1144', '0306', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1144', '0306', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1132', '0306', 'GOL');	
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2954', '0306', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1151', '0306', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2957', '0306', 'AMARILLA');
+
+
+
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2690', '0307', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2698', '0307', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2692', '0307', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1253', '0307', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1253', '0307', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1253', '0307', 'ROJA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1271', '0307', 'AMARILLA');
+
+
+
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('2249', '0308', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1148', '0308', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1772', '0308', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1775', '0308', 'AMARILLA');
+
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1043', '0309', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1664', '0309', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1667', '0309', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1651', '0309', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1049', '0309', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1045', '0309', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1655', '0309', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1646', '0309', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1035', '0309', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1651', '0309', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1659', '0309', 'AMARILLA');
+
+
+
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1407', '0310', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1406', '0310', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1380', '0310', 'GOL');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1364', '0310', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1487', '0310', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1495', '0310', 'AMARILLA');
+insert into registro_partido (id_jugador, codigo_jornada,accion) values('1405', '0310', 'AMARILLA');
+
+
+
