@@ -8,7 +8,7 @@ create table arbitro(
 );
 
 --- Verificamos Datestyle (DD/MM/YY)
-show datestyle
+show datestyle;
 set datestyle = DMY, SQL;
 
 --- Inserción de datos en la tabla Árbitro
