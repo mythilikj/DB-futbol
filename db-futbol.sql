@@ -1,5 +1,4 @@
 --- Creación de tablas
-
 /*
 Nota: Ejecutar la creación de tablas por separado. 
 Nota: Primero debemos verificar el datestyle de nuestro pgAdmin con la siguiente sentencia:
