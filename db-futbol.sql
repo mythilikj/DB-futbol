@@ -66,15 +66,6 @@ create table partido(
 	foreign key (id_arbitro) references arbitro
 );
 
---> Patrocina
-create table patrocina(
-	codigo_patrocinador varchar(10),
-	id_equipo varchar(10),
-	constraint patrocina_pk primary key (codigo_patrocinador, id_equipo), 
-	foreign key (codigo_patrocinador) references patrocinador,
-	foreign key (id_equipo) references equipo
-);
-
 --> Patrocinador
 create type element as enum ('VESTIMENTA', 'APOYO ECONOMICO');
 
@@ -83,6 +74,15 @@ create table patrocinador(
 	nombre varchar(40),
 	elemento element,
 	constraint patrocinador_pk primary key(codigo_patrocinador)
+);
+
+--> Patrocina
+create table patrocina(
+	codigo_patrocinador varchar(10),
+	id_equipo varchar(10),
+	constraint patrocina_pk primary key (codigo_patrocinador, id_equipo), 
+	foreign key (codigo_patrocinador) references patrocinador,
+	foreign key (id_equipo) references equipo
 );
 
 --> Registro Partido
@@ -96,7 +96,7 @@ create table registro_partido(
 );
 
 
---- Inserción de datos en la tabla Estadio
+--- Inserción de datos en la tablas ------------------------------------------------------------------------------------------------------------
 --> Arbitro
 insert into arbitro values ('101', 'Paul', 'Tierney', '25/12/1980');
 insert into arbitro values ('102', 'Michael', 'Oliver', '20/02/1985');
