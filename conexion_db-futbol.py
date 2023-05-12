@@ -3,8 +3,8 @@
     #Para correr la consulta 2: Quitar el comentario de las lineas 21 y 99.
     #Para correr la consulta 3: Quitar el comentario de las lineas 21 y 85.
 #Se requiere realizar cada consulta en una consola separada
-#ed, crear una consola para correr cada consulta
-#Además, es necesario borrar todas las variables antes de correr cada consultas.
+#Es decir, crear una consola para correr cada consulta
+#Además, es necesario borrar todas las variables del entorno antes de correr cada consulta. (Opción de Spyder que tiene icono de basura por la zona de la consola)
 #Si no se cumplen estos pasos, las consultas no corren ni individualmente.
 import psycopg2
 try:
