@@ -1,10 +1,10 @@
-#Es necesario correr el archivo dos veces porque de otra forma no se mostraran todas las tablas en la consola.
-    #Para correr la consulta 1: Quitar el comentario de las lineas 85 y 99.
-    #Para correr la consulta 2: Quitar el comentario de las lineas 21 y 99.
-    #Para correr la consulta 3: Quitar el comentario de las lineas 21 y 85.
+#Es necesario correr el archivo tres veces porque de otra forma no se mostraran todas las tablas en la consola.
+    #Para correr la consulta 1: Las lineas 85 y 98 sin comentar. La linea 21 comentada.
+    #Para correr la consulta 2: Las lineas 21 y 98 sin comentar. La linea 85 comentada.
+    #Para correr la consulta 3: Las lineas 21 y 85 sin comentar. La linea 98 comentada.
 #Se requiere realizar cada consulta en una consola separada
-#Es decir, crear una consola para correr cada consulta
-#Además, es necesario borrar todas las variables del entorno antes de correr cada consulta. (Opción de Spyder que tiene icono de basura por la zona de la consola)
+#ed, crear una consola para correr cada consulta
+#Además, es necesario borrar todas las variables antes de correr cada consultas.
 #Si no se cumplen estos pasos, las consultas no corren ni individualmente.
 import psycopg2
 try:
@@ -92,7 +92,6 @@ try:
     print('TABLA JUGADOR: id_jugador, id-equipo, dorsal, primer_nombre, segundo_nombre, primer_aoellido, segundo_apellido, nacionalidad, fecha_nacimiento')
     for row in rows:
         print(rows)
-    print("\n")
     #'''
    
     #Consulta #3: Tabla registro_partido - 325 tuplas
@@ -114,3 +113,10 @@ except Exception as ex:
 finally:
     connection.close()
     print("Conexión finalizada")
+#Nota importante: En algunos casos la tabla de jugadores
+#se muestra sin el nombre y las columnas arriba. Esto es por la cantidad
+#de tuplas que tiene esta tabla (525), no cabe a veces la sentencia
+#que imprime el nombre de la tabla en la consola.
+
+#Nota importante II: La primera tupla de la tabla tiene como codigo 31, así
+#se puede verificar que se esta mostrando desden el principio.
