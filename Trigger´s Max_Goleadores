@@ -1,0 +1,39 @@
+create table Max_goleadores(
+id_jugador varchar(10), primer_nombre varchar(30),
+primer_apellido varchar(30) , Cantidad_goles integer
+);
+
+select exists ( select 1 from Max_goleadores where id_jugador=new.id_jugador) as existe_dato
+
+CREATE OR REPLACE FUNCTION calcular_goles()
+    RETURNS TRIGGER AS $$
+DECLARE
+    nombre_p varchar(30);
+    nombre_a varchar(30);
+    Cantidad_gol integer;
+    existe_datos boolean;
+BEGIN
+    IF new.accion = 'GOL' THEN
+        -- Verificar si existe el jugador en Max_goleadores
+        SELECT EXISTS(SELECT 1 FROM Max_goleadores WHERE id_jugador = new.id_jugador) INTO existe_datos;
+        
+        IF existe_datos THEN
+            -- Actualizar Cantidad_goles en Max_goleadores
+            UPDATE Max_goleadores SET Cantidad_goles = Cantidad_goles + 1 WHERE id_jugador = new.id_jugador;
+        ELSE
+            -- Insertar nuevo registro en Max_goleadores
+            SELECT primer_nombre INTO nombre_p FROM jugador WHERE id_jugador = new.id_jugador;
+            SELECT primer_apellido INTO nombre_a FROM jugador WHERE id_jugador = new.id_jugador;
+            Cantidad_gol := 1;
+            INSERT INTO Max_goleadores VALUES (new.id_jugador, nombre_p, nombre_a, Cantidad_gol);
+        END IF;
+    END IF;
+    
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+	
+
+create trigger actualizar_goles
+after insert on registro_partido for each row
+execute procedure calcular_goles();
