@@ -1,0 +1,56 @@
+create table Puntos_Equipo(
+id_equipo varchar(10), nombre varchar(50),
+ Cantidad_puntos integer
+);
+
+
+
+CREATE OR REPLACE FUNCTION calcular_puntos()
+    RETURNS TRIGGER AS $$
+DECLARE
+    nombre_p varchar(30);
+    
+    Cantidad_puntos integer;
+    existe_datos boolean;
+BEGIN
+    IF new.resultado = 1 THEN
+        -- Verificar si existe el jugador en Max_goleadores
+        SELECT EXISTS(SELECT 1 FROM Puntos_Equipo WHERE id_equipo = new.id_local) INTO existe_datos;
+        
+        IF existe_datos THEN
+            -- Actualizar Cantidad_goles en Max_goleadores
+            UPDATE Puntos_Equipo SET Cantidad_puntos = Cantidad_goles + 3 WHERE id_jugador = new.id_local;
+        ELSE
+            -- Insertar nuevo registro en Max_goleadores
+            SELECT nombre INTO nombre_p FROM equipo WHERE id_equipo = new.id_local;
+            
+            Cantidad_puntos := 3;
+            INSERT INTO Puntos_Equipo VALUES (new.id_local, nombre_p, Cantidad_puntos);
+        END IF;
+    END IF;
+	
+	
+	 IF new.resultado = 2 THEN
+        -- Verificar si existe el jugador en Max_goleadores
+        SELECT EXISTS(SELECT 1 FROM Puntos_Equipo WHERE id_equipo = new.id_visitante) INTO existe_datos;
+        
+        IF existe_datos THEN
+            -- Actualizar Cantidad_goles en Max_goleadores
+            UPDATE Puntos_Equipo SET Cantidad_puntos = Cantidad_goles + 3 WHERE id_jugador = new.id_visitante;
+        ELSE
+            -- Insertar nuevo registro en Max_goleadores
+            SELECT nombre INTO nombre_p FROM equipo WHERE id_equipo = new.id_visitante;
+            
+            Cantidad_puntos := 3;
+            INSERT INTO Puntos_Equipo VALUES (new.id_visitante, nombre_p, Cantidad_puntos);
+        END IF;
+    END IF;
+	
+	
+	
+	
+	
+    
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
