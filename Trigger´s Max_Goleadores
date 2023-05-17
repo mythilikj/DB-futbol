@@ -3,7 +3,7 @@ id_jugador varchar(10), primer_nombre varchar(30),
 primer_apellido varchar(30) , Cantidad_goles integer
 );
 
-select exists ( select 1 from Max_goleadores where id_jugador=new.id_jugador) as existe_dato
+
 
 CREATE OR REPLACE FUNCTION calcular_goles()
     RETURNS TRIGGER AS $$
