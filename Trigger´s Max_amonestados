@@ -1,0 +1,39 @@
+create table Max_amonestados(
+id_jugador varchar(10), primer_nombre varchar(30),
+primer_apellido varchar(30) , Cantidad_amonestaciones integer
+);
+
+
+
+CREATE OR REPLACE FUNCTION calcular_amonestaciones()
+    RETURNS TRIGGER AS $$
+DECLARE
+    nombre_p varchar(30);
+    nombre_a varchar(30);
+    Cantidad integer;
+    existe_datos boolean;
+BEGIN
+    IF new.accion = 'AMARILLA' or new.accion= 'ROJA' THEN
+        -- Verificar si existe el jugador en Max_goleadores
+        SELECT EXISTS(SELECT 1 FROM Max_amonestados WHERE id_jugador = new.id_jugador) INTO existe_datos;
+        
+        IF existe_datos THEN
+            -- Actualizar Cantidad_goles en Max_goleadores
+            UPDATE Max_amonestados SET Cantidad_amonestaciones = Cantidad_amonestaciones + 1 WHERE id_jugador = new.id_jugador;
+        ELSE
+            -- Insertar nuevo registro en Max_goleadores
+            SELECT primer_nombre INTO nombre_p FROM jugador WHERE id_jugador = new.id_jugador;
+            SELECT primer_apellido INTO nombre_a FROM jugador WHERE id_jugador = new.id_jugador;
+            Cantidad := 1;
+            INSERT INTO Max_amonestados VALUES (new.id_jugador, nombre_p, nombre_a, Cantidad);
+        END IF;
+    END IF;
+    
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+	
+
+create trigger actualizar_amonestaciones
+after insert on registro_partido for each row
+execute procedure calcular_amonestaciones();
