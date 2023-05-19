@@ -1,0 +1,15 @@
+
+create view edad_jugadores as 
+	select id_jugador, (current_date - fecha_nacimiento)/365 as edad
+	from jugador 
+
+
+create view edad_avg_equipo as
+	select e.id_equipo, avg(a.edad) as edad_promedio
+	from equipo as e, edad_jugadores as a
+	where a.id_jugador in (select id_jugador 
+						  from jugador 
+						  where id_equipo=e.id_equipo)
+	group by e.id_equipo
+	order by e.id_equipo asc
+	
