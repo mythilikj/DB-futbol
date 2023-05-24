@@ -1,0 +1,104 @@
+from dash import Dash,html,dcc
+import psycopg2
+import plotly.express as px
+try:
+    connection=psycopg2.connect(
+        host='localhost',
+        user='postgres',
+        password='20041021',
+        database='proyecto'
+    )
+    print('conexion exitosa')
+    cursor=connection.cursor()
+    ## 1 grafica
+    cursor.execute('select * from edad_avg_equipo')
+    rows =cursor.fetchall()
+    for row in rows:
+        print(row)
+    app = Dash(__name__)
+    fig1 =px.bar(rows,x=0,y=1,color_discrete_sequence=["#652a64"], title="Edad promedio por equipo")
+
+
+    ## 2 grafica
+    cursor.execute('select cantidad_goles, (count(cantidad_goles)) as num_jugadores from Max_goleadores group by cantidad_goles order by cantidad_goles asc')
+    rows =cursor.fetchall()
+    for row in rows:
+        print(row)
+            
+
+    fig2 =px.pie(rows,values=1,names=0,color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/ goles")
+    ## 2.1 grafica
+    cursor.execute('select primer_nombre,cantidad_goles from  Max_goleadores')
+    rows =cursor.fetchall()
+    for row in rows:
+        print(row)
+
+
+    fig2_1 =px.bar(rows,x=0,y=1,color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/ goles")
+    
+    ## 3 grafica
+    cursor.execute('select cantidad_amonestaciones, (count(cantidad_amonestaciones)) as num_jugadores from Max_amonestados group by cantidad_amonestaciones order by cantidad_amonestaciones asc')
+    rows =cursor.fetchall()
+    for row in rows:
+        print(row)
+
+    fig3 =px.pie(rows,values=1,names=0,color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/ amonestaciones")
+    ## 3.1 grafica
+    cursor.execute('select primer_nombre,cantidad_amonestaciones from  Max_amonestados')
+    rows =cursor.fetchall()
+    for row in rows:
+        print(row)
+
+
+    fig3_1 =px.bar(rows,x=0,y=1,color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/amonestaciones")
+    
+    ## 4 grafica
+    cursor.execute('select nombre,cantidad_puntos from  puntos_equipo')
+    rows =cursor.fetchall()
+    for row in rows:
+        print(row)
+
+
+    fig4 =px.bar(rows,x=0,y=1,color_discrete_sequence=["#652a64"], title="Puntos por equipo")
+    
+    
+    
+    app.layout = html.Div(children=[
+        html.H1(children= 'Análisis de datos'),
+        
+        html.Div(children='''
+                 En respuesta a falta de bases de datos eficientes e integradas sobre datos relacionados con el fútbol profesional, nuestro propósito es crear una base de datos donde se pueda acceder fácilmente a toda la información relacionada con este tema.
+                 Y demostrar la utilidad de la base a partir de los siguienets análisis: 
+        '''),
+        dcc.Graph(
+            id= 'example-graph' ,
+            figure=fig1
+        ),
+        dcc.Graph(
+            id= 'example-graph' ,
+            figure=fig2
+        ),
+        dcc.Graph(
+            id= 'example-graph' ,
+            figure=fig2_1
+        ),
+        dcc.Graph(
+            id= 'example-graph' ,
+            figure=fig3
+        ),
+        dcc.Graph(
+            id= 'example-graph' ,
+            figure=fig3_1
+        ),
+        dcc.Graph(
+            id= 'example-graph' ,
+            figure=fig4
+        )
+    ])
+    if __name__== '__main__':
+        app.run_server (debug=True)
+except Exception as ex:
+    print(ex)
+finally:
+    connection.close()
+    print('conexion finalizada')
