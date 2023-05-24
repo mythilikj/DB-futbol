@@ -94,6 +94,191 @@ create table registro_partido(
 	foreign key (codigo_jornada) references partido
 );
 
+--- Triggers 
+/*Estos triggers se deben correr antes de la inserción de datos para que las tablas relacionadas a los triggers, se llenen correctamente*/
+
+--- 1. Trigger 'Max Goleadores' -- Muestra en una tabla el acumulado de los goles anotado por cada jugador
+-- Se crea la tabla donde se va a mantener/actualizar el registro
+create table Max_goleadores(
+	id_jugador varchar(10), 
+	primer_nombre varchar(30), 
+	primer_apellido varchar(30), 
+	Cantidad_goles integer
+);
+-- Se crea la función para calcular los goles
+CREATE OR REPLACE FUNCTION calcular_goles()
+    RETURNS TRIGGER AS $$
+DECLARE
+    nombre_p varchar(30);
+    nombre_a varchar(30);
+    Cantidad_gol integer;
+    existe_datos boolean;
+BEGIN
+    IF new.accion = 'GOL' THEN
+        -- Verificar si existe el jugador en Max_goleadores
+        SELECT EXISTS(SELECT 1 FROM Max_goleadores WHERE id_jugador = new.id_jugador) INTO existe_datos;
+        
+        IF existe_datos THEN
+            -- Actualizar Cantidad_goles en Max_goleadores
+            UPDATE Max_goleadores SET Cantidad_goles = Cantidad_goles + 1 WHERE id_jugador = new.id_jugador;
+        ELSE
+            -- Insertar nuevo registro en Max_goleadores
+            SELECT primer_nombre INTO nombre_p FROM jugador WHERE id_jugador = new.id_jugador;
+            SELECT primer_apellido INTO nombre_a FROM jugador WHERE id_jugador = new.id_jugador;
+            Cantidad_gol := 1;
+            INSERT INTO Max_goleadores VALUES (new.id_jugador, nombre_p, nombre_a, Cantidad_gol);
+        END IF;
+    END IF;
+    
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+	
+-- Se crea e implementa el trigger 
+create trigger actualizar_goles
+after insert on registro_partido for each row
+execute procedure calcular_goles();
+
+--- 2. Trigger 'Max Amonestados' -- Muestra en una tabla el acumulado de amonestaciones por cada jugador
+-- Se crea la tabla donde se va a mantener/actualizar el registro
+create table Max_amonestados(
+	id_jugador varchar(10), 
+	primer_nombre varchar(30), 
+	primer_apellido varchar(30),
+	Cantidad_amonestaciones integer
+);
+
+-- Se crea la función para calcular los goles
+CREATE OR REPLACE FUNCTION calcular_amonestaciones()
+    RETURNS TRIGGER AS $$
+DECLARE
+    nombre_p varchar(30);
+    nombre_a varchar(30);
+    Cantidad integer;
+    existe_datos boolean;
+BEGIN
+    IF new.accion = 'AMARILLA' or new.accion= 'ROJA' THEN
+        -- Verificar si existe el jugador en Max_goleadores
+        SELECT EXISTS(SELECT 1 FROM Max_amonestados WHERE id_jugador = new.id_jugador) INTO existe_datos;
+        
+        IF existe_datos THEN
+            -- Actualizar Cantidad_goles en Max_goleadores
+            UPDATE Max_amonestados SET Cantidad_amonestaciones = Cantidad_amonestaciones + 1 WHERE id_jugador = new.id_jugador;
+        ELSE
+            -- Insertar nuevo registro en Max_goleadores
+            SELECT primer_nombre INTO nombre_p FROM jugador WHERE id_jugador = new.id_jugador;
+            SELECT primer_apellido INTO nombre_a FROM jugador WHERE id_jugador = new.id_jugador;
+            Cantidad := 1;
+            INSERT INTO Max_amonestados VALUES (new.id_jugador, nombre_p, nombre_a, Cantidad);
+        END IF;
+    END IF;
+    
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+	
+-- Se crea e implementa el trigger 
+create trigger actualizar_amonestaciones
+after insert on registro_partido for each row
+execute procedure calcular_amonestaciones();
+
+--- 3. Trigger 'Max Puntos Equipo' -- Muestra en una tabla el acumulado de puntos por equipo
+-- Se crea la tabla donde se va a mantener/actualizar el registro
+create table Puntos_Equipo(
+	id_equipo varchar(10), 
+	nombre varchar(50),
+	Cantidad_puntos integer
+);
+
+-- Se crea la función para calcular los puntos
+CREATE OR REPLACE FUNCTION calcular_puntos()
+    RETURNS TRIGGER AS $$
+DECLARE
+    nombre_p varchar(30);
+    
+    Cantidad_punto integer;
+    existe_datos boolean;
+BEGIN
+    IF new.resultado = 1 THEN
+        -- Verificar si existe el jugador en Max_goleadores
+        SELECT EXISTS(SELECT 1 FROM Puntos_Equipo WHERE id_equipo = new.id_local) INTO existe_datos;
+        
+        IF existe_datos THEN
+            -- Actualizar Cantidad_goles en Max_goleadores
+            UPDATE Puntos_Equipo SET Cantidad_puntos = Cantidad_puntos + 3 WHERE id_equipo = new.id_local;
+        ELSE
+            -- Insertar nuevo registro en Max_goleadores
+            SELECT nombre INTO nombre_p FROM equipo WHERE id_equipo = new.id_local;
+            
+            Cantidad_punto := 3;
+            INSERT INTO Puntos_Equipo VALUES (new.id_local, nombre_p, Cantidad_punto);
+        END IF;
+    END IF;
+	
+	
+	 IF new.resultado = 2 THEN
+        -- Verificar si existe el jugador en Max_goleadores
+        SELECT EXISTS(SELECT 1 FROM Puntos_Equipo WHERE id_equipo = new.id_visitante) INTO existe_datos;
+        
+        IF existe_datos THEN
+            -- Actualizar Cantidad_goles en Max_goleadores
+            UPDATE Puntos_Equipo SET Cantidad_puntos = Cantidad_puntos + 3 WHERE id_equipo = new.id_visitante;
+        ELSE
+            -- Insertar nuevo registro en Max_goleadores
+            SELECT nombre INTO nombre_p FROM equipo WHERE id_equipo = new.id_visitante;
+            
+            Cantidad_punto := 3;
+            INSERT INTO Puntos_Equipo VALUES (new.id_visitante, nombre_p, Cantidad_punto);
+        END IF;
+    END IF;
+	
+	
+	IF new.resultado = 0 THEN
+        
+		 -- Verificar si existe el jugador en Max_goleadores
+        SELECT EXISTS(SELECT 1 FROM Puntos_Equipo WHERE id_equipo = new.id_local) INTO existe_datos;
+        
+        IF existe_datos THEN
+            -- Actualizar Cantidad_goles en Max_goleadores
+            UPDATE Puntos_Equipo SET Cantidad_puntos = Cantidad_puntos + 1 WHERE id_equipo = new.id_local;
+        ELSE
+            -- Insertar nuevo registro en Max_goleadores
+            SELECT nombre INTO nombre_p FROM equipo WHERE id_equipo = new.id_local;
+            
+            Cantidad_punto := 1;
+            INSERT INTO Puntos_Equipo VALUES (new.id_local, nombre_p, Cantidad_punto);
+        END IF;
+		
+		-- Verificar si existe el jugador en Max_goleadores
+        SELECT EXISTS(SELECT 1 FROM Puntos_Equipo WHERE id_equipo = new.id_visitante) INTO existe_datos;
+        
+        IF existe_datos THEN
+            -- Actualizar Cantidad_goles en Max_goleadores
+            UPDATE Puntos_Equipo SET Cantidad_puntos = Cantidad_puntos + 1 WHERE id_equipo = new.id_visitante;
+        ELSE
+            -- Insertar nuevo registro en Max_goleadores
+            SELECT nombre INTO nombre_p FROM equipo WHERE id_equipo = new.id_visitante;
+            
+            Cantidad_punto := 1;
+            INSERT INTO Puntos_Equipo VALUES (new.id_visitante, nombre_p, Cantidad_punto);
+        END IF;
+		
+		
+		
+    END IF;
+	
+	
+    
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+	
+-- Se crea e implementa el trigger 
+create trigger actualizar_puntos
+after insert on partido for each row
+execute procedure calcular_puntos();
+
 
 --- Inserción de datos en la tablas ------------------------------------------------------------------------------------------------------------
 --> Arbitro
@@ -716,6 +901,22 @@ insert into jugador values('2969', '29', 9,'Dominic', 'Ayodele', 'Solanke-Mitche
 insert into jugador values('2970', '29', 24,'Antoine', 'Serlom', 'Semenyo', null, 'Ghana', '07/01/2000');
 insert into jugador values('2971', '29', 21,'Kieffer', 'Roberto', 'Francisco', 'Moore', 'Gales', '08/08/1992');
 
+--> Creación de Vista 'Edad Promedia por Equipo'
+/*Para ejecutar esta vista, primero se deben insertar las tablas con los datos de Jugador y Equipo */
+create view edad_jugadores as 
+	select id_jugador, (current_date - fecha_nacimiento)/365 as edad
+	from jugador 
+
+
+create view edad_avg_equipo as
+	select e.id_equipo, avg(a.edad) as edad_promedio
+	from equipo as e, edad_jugadores as a
+	where a.id_jugador in (select id_jugador 
+						  from jugador 
+						  where id_equipo=e.id_equipo)
+	group by e.id_equipo
+	order by e.id_equipo asc
+
 
 --> Partido
 insert into partido values('0101', '27', '11', 0, 2, '103', 2);
@@ -1222,3 +1423,11 @@ insert into registro_partido (id_jugador, codigo_jornada,accion) values('1493', 
 insert into registro_partido (id_jugador, codigo_jornada,accion) values('1486', '0510', 'AMARILLA');
 insert into registro_partido (id_jugador, codigo_jornada,accion) values('1851', '0510', 'AMARILLA');
 
+--- Para visualizar de dmejor manera los triggers y las vistas
+--> Triggers
+select * from Max_goleadores order by cantidad_goles desc
+select * from Max_amonestados order by cantidad_amonestaciones desc
+select * from Puntos_Equipo order by cantidad_puntos desc
+--> Vistas
+select * from edad_jugadores order by edad desc
+select * from edad_avg_equipo order by edad_promedio desc
