@@ -1,104 +1,377 @@
-from dash import Dash,html,dcc
+from dash import Dash, html, dcc
 import psycopg2
 import plotly.express as px
+
+
+
 try:
-    connection=psycopg2.connect(
+    connection = psycopg2.connect(
         host='localhost',
         user='postgres',
-        password='20041021',
-        database='proyecto'
+        password='1234567890',
+        database='proyect'
     )
     print('conexion exitosa')
-    cursor=connection.cursor()
-    ## 1 grafica
-    cursor.execute('select * from edad_avg_equipo')
-    rows =cursor.fetchall()
+    cursor = connection.cursor()
+
+    # 1 grafica
+    cursor.execute('select e.nombre, ea.edad_promedio from equipo as e inner join edad_avg_equipo as ea on e.id_equipo = ea.id_equipo')
+    rows = cursor.fetchall()
     for row in rows:
         print(row)
-    app = Dash(__name__)
-    fig1 =px.bar(rows,x=0,y=1,color_discrete_sequence=["#652a64"], title="Edad promedio por equipo")
+    
+    fig1 = px.bar(rows, x=0, y=1, color_discrete_sequence=["#652a64"], title="Edad promedio por equipo")
 
-
-    ## 2 grafica
+    # 2 grafica
     cursor.execute('select cantidad_goles, (count(cantidad_goles)) as num_jugadores from Max_goleadores group by cantidad_goles order by cantidad_goles asc')
-    rows =cursor.fetchall()
+    rows = cursor.fetchall()
     for row in rows:
         print(row)
-            
+    fig2 = px.pie(rows, values=1, names=0, color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/goles")
 
-    fig2 =px.pie(rows,values=1,names=0,color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/ goles")
-    ## 2.1 grafica
-    cursor.execute('select primer_nombre,cantidad_goles from  Max_goleadores')
-    rows =cursor.fetchall()
+    # 2.1 grafica
+    cursor.execute('select primer_apellido, cantidad_goles from Max_goleadores')
+    rows = cursor.fetchall()
     for row in rows:
         print(row)
+    fig2_1 = px.bar(rows, x=0, y=1, color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/goles")
 
-
-    fig2_1 =px.bar(rows,x=0,y=1,color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/ goles")
-    
-    ## 3 grafica
+    # 3 grafica
     cursor.execute('select cantidad_amonestaciones, (count(cantidad_amonestaciones)) as num_jugadores from Max_amonestados group by cantidad_amonestaciones order by cantidad_amonestaciones asc')
-    rows =cursor.fetchall()
+    rows = cursor.fetchall()
     for row in rows:
         print(row)
+    fig3 = px.pie(rows, values=1, names=0, color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/amonestaciones")
 
-    fig3 =px.pie(rows,values=1,names=0,color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/ amonestaciones")
-    ## 3.1 grafica
-    cursor.execute('select primer_nombre,cantidad_amonestaciones from  Max_amonestados')
-    rows =cursor.fetchall()
+    # 3.1 grafica
+    cursor.execute('select primer_apellido, cantidad_amonestaciones from Max_amonestados')
+    rows = cursor.fetchall()
     for row in rows:
         print(row)
+    fig3_1 = px.bar(rows, x=0, y=1, color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/amonestaciones")
 
-
-    fig3_1 =px.bar(rows,x=0,y=1,color_discrete_sequence=["#652a64"], title="Cantidad de jugadores/amonestaciones")
-    
-    ## 4 grafica
-    cursor.execute('select nombre,cantidad_puntos from  puntos_equipo')
-    rows =cursor.fetchall()
+    # 4 grafica
+    cursor.execute('select nombre, cantidad_puntos from puntos_equipo')
+    rows = cursor.fetchall()
     for row in rows:
         print(row)
+    fig4 = px.bar(rows, x=0, y=1, color_discrete_sequence=["#652a64"], title="Puntos por equipo")
+    
+    
+    
+    app = Dash(__name__, external_stylesheets=['https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'])
+    
+    app.layout = html.Div(className='premier-league', children=[
+        html.H1(className='premier-league-title', children='DB-futbol', style={"textAlign": "center"}),
 
-
-    fig4 =px.bar(rows,x=0,y=1,color_discrete_sequence=["#652a64"], title="Puntos por equipo")
-    
-    
-    
-    app.layout = html.Div(children=[
-        html.H1(children= 'Análisis de datos'),
-        
-        html.Div(children='''
-                 En respuesta a falta de bases de datos eficientes e integradas sobre datos relacionados con el fútbol profesional, nuestro propósito es crear una base de datos donde se pueda acceder fácilmente a toda la información relacionada con este tema.
-                 Y demostrar la utilidad de la base a partir de los siguienets análisis: 
+        html.P(children='''
+                 Nuestra base de datos nace de la necesidad de tener bases de datos integradas y eficientes que permitan manipular de manera sencilla información acerca del fútbol profesional. Una base de datos con esta información es importante pues es un recurso valioso para entusiastas del fútbol, los agentes, los cazatalentos y los ejecutivos de los clubes, ya que proporciona una gran cantidad de información para la industria. Los datos que manejamos para el proyecto son los de la Premier League 2023-1 y nuestra intención era crear una base de datos donde se pueda acceder fácilmente a toda la información relacionada con este tema.
         '''),
-        dcc.Graph(
-            id= 'example-graph' ,
-            figure=fig1
-        ),
-        dcc.Graph(
-            id= 'example-graph' ,
-            figure=fig2
-        ),
-        dcc.Graph(
-            id= 'example-graph' ,
-            figure=fig2_1
-        ),
-        dcc.Graph(
-            id= 'example-graph' ,
-            figure=fig3
-        ),
-        dcc.Graph(
-            id= 'example-graph' ,
-            figure=fig3_1
-        ),
-        dcc.Graph(
-            id= 'example-graph' ,
-            figure=fig4
-        )
+
+        # Divider grafica 1
+        html.Div(id='analisis-1', className='premier-league-section', children=[
+            # Titulo
+            html.H3('Promedio de edades por equipo', className='premier-league-subtitle', style={"textAlign": "left"}),
+            html.P('''
+                     Esta vista es importante porque se ha comprobado que los equipos cuyo promedio de edad está entre 25 y 30 años tienen un rendimiento mayor que los equipos rivales. Esto nos ayuda a analizar qué equipos tienen más posibilidades de liderar el ranking de posiciones y, por ende, ganar el campeonato. 
+            '''),
+
+            # Grafica
+            dcc.Graph(
+                id='example-graph-1',
+                figure=fig1
+            ),
+
+            html.Div(
+                className="row",
+                children=[
+                    html.Div(
+                        className="one-third column",
+                        children=[
+                            html.H4("Análisis de Resultados"),
+                            html.P("La gráfica generada por la creación de esta vista proporciona facilidades significativas a los encargados de la gestión de la competición. Al tener acceso a esta vista, pueden evaluar de manera rápida y precisa el rendimiento de los equipos en función de su promedio de edad. Esto les permite tomar decisiones estratégicas de forma más eficiente, como la conformación de las plantillas, la realización de fichajes y los cambios en la dirección técnica. Además, la vista ofrece una visión clara y estructurada de qué equipos se encuentran dentro del rango de edad óptimo para obtener mejores resultados. Esto simplifica el análisis y la identificación de aquellos equipos que tienen mayores posibilidades de liderar la clasificación y ganar el campeonato. En pocas palabras, la creación de esta vista facilita la evaluación del rendimiento de los equipos en base a su promedio de edad, permitiendo una toma de decisiones más informada y eficiente. Proporciona una herramienta valiosa para optimizar la gestión de los equipos y aumentar las probabilidades de éxito en la competición. "),
+                        ],
+                    ),
+                    html.Div(
+                        className="two-thirds column",
+                        children=[
+                            html.H4("Sección de Discusión"),
+                            html.Div(
+                                className="row",
+                                children=[
+                                    html.Div(
+                                        className="six columns",
+                                        children=[
+                                            html.P("Mythili Kasibhatla", style={'font-size': '18px'}),
+                                            html.P("En mi opinión, el análisis del promedio de edad de los jugadores por equipo resulta fundamental para comprender cómo puede impactar en los resultados de la competición. Conocer el promedio de edad de los equipos rivales puede brindar una ventaja competitiva. En definitiva, considero que el análisis del promedio de edad es una herramienta esencial para maximizar el rendimiento de los equipos en la competencia. "),
+                                            html.P("Elissa Castellanos", style={'font-size': '18px'}),
+                                            html.P("El análisis del promedio de edad de los jugadores por equipo es fundamental para comprender su impacto en los resultados de la competición y obtener una ventaja competitiva. Al comparar la edad promedio con la posición en la tabla de posiciones, se establece una relación entre rendimiento y edad, lo que permite evaluar la viabilidad de apostar por jóvenes promesas en busca de objetivos como ganar la liga. Además, el diagrama de barras facilita a los técnicos y directores la renovación de contratos con talentos jóvenes, brindando eficiencia y frescura al equipo en cada temporada."),
+                                        ],
+                                    ),
+                                    html.Div(
+                                        className="six columns",
+                                        children=[
+                                            html.P("Juan Diego Simbaqueba", style={'font-size': '18px'}),
+                                            html.P("Al analizar el promedio de edad de los jugadores que tiene un equipo, podemos comparar dicha edad con la posición en la cual se encuentra el equipo en la tabla de posiciones. De esta forma, podemos establecer una relación entre el rendimiento de un equipo y el promedio de edad que tienen. Esto nos permite evaluar qué tan factible es un equipo conformado por jóvenes promesas a la hora de apostar por un proyecto que tenga como objetivo ganar la liga, entre otros análisis posibles."),
+                                            html.P("Natalia Cabrera", style={'font-size': '18px'}),
+                                            html.P("El diagrama de barras ayuda a visualizar a los técnicos o directores del equipo si es momento de renovar contratos con personas más jóvenes. Lo que brinda eficiencia y nuevos talentos al equipo constantemente. Siendo esto una ventaja para la organización de los equipos en cada temporada."),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                        ],
+                    ),
+                ],
+            )
+
+        ]),
+
+        # Divider grafica 2
+        html.Div(id='analisis-2', children=[
+            # Titulo
+            html.H3('Tabla de máximos goleadores', style={"textAlign": "left"}),
+            html.P('''
+                    Esta tabla es importante porque los jugadores compiten a nivel local en la Liga por el galardón de "Máximo Goleador". Este galardón se entrega al final de la temporada por la organización del torneo al jugador que más goles marcó durante la misma. La intención de esta tabla es llevar un conteo de los goles por jugador para facilitar la entrega del premio al final de la temporada. 
+            '''),
+
+            # Grafica
+            html.Div(
+                className="row",
+                children=[
+                    html.Div(
+                        className="one-third column",
+                        children=[
+                            dcc.Graph(
+                                id='example-graph-2',
+                                figure=fig2
+                            )
+                        ]
+                    ),
+                    html.Div(
+                        className="two-thirds column",
+                        children=[
+                            dcc.Graph(
+                                id='example-graph-3',
+                                figure=fig2_1
+                            )
+                        ]
+                    )
+                ]
+            ),
+
+            html.Div(
+                className="row",
+                children=[
+                    html.Div(
+                        className="one-third column",
+                        children=[
+                            html.H4("Análisis de Resultados"),
+                            html.P("En términos generales, la gráfica generada por la tabla "Máximos Goleadores" desempeña un papel esencial en la gestión de la competición. Proporciona una herramienta confiable para identificar y premiar al jugador más destacado en términos de goles anotados. Su función principal consiste en llevar un conteo preciso de los goles por jugador, lo que facilita una entrega justa y transparente del prestigioso título de "Máximo Goleador" al final de la temporada. La implementación del trigger en nuestra base de datos es de gran utilidad, ya que no solo permite la entrega de reconocimientos, sino que también mejora la visualización del aporte de los jugadores. Además, esta información puede ser utilizada para realizar análisis estadísticos. Por ejemplo, es posible determinar si la mayoría de los jugadores que anotan goles solo marcan uno en la temporada. "),
+                        ],
+                    ),
+                    html.Div(
+                        className="two-thirds column",
+                        children=[
+                            html.H4("Sección de Discusión"),
+                            html.Div(
+                                className="row",
+                                children=[
+                                    html.Div(
+                                        className="six columns",
+                                        children=[
+                                            html.P("Mythili Kasibhatla", style={'font-size': '18px'}),
+                                            html.P("La tabla de "Máximos Goleadores" destaca la importancia de los goles para un equipo. Ver cómo marcar goles afecta los resultados y la posición en la clasificación es interesante. Esta tabla concentra la información de forma rápida y precisa, siendo útil para equipos, patrocinadores y fanáticos. Además de satisfacer a los aficionados, brinda información valiosa sobre el impacto de los goles en el rendimiento general de los equipos, su estrategia, posición en la competencia y atracción de patrocinadores. En resumen, es una herramienta esencial que genera interés y análisis en el mundo del fútbol."),
+                                            html.P("Elissa Castellanos", style={'font-size': '18px'}),
+                                            html.P(" La tabla de "Máximos Goleadores" destaca la importancia de los goles para un equipo, proporcionando información rápida y precisa sobre el impacto de los goles en los resultados y la posición en la clasificación. Esta herramienta esencial genera interés y análisis en el mundo del fútbol, siendo útil para equipos, patrocinadores y fanáticos. Permite evaluar la influencia de los goles en el rendimiento general de los equipos, su estrategia, posición en la competencia y atracción de patrocinadores. Además, la tabla ayuda a establecer el promedio de goles por partido de un jugador, determinar la dependencia ofensiva de un equipo en un jugador específico y desarrollar planes de contingencia. La visualización de los goles a través de un diagrama de barras facilita la identificación del máximo goleador, la evaluación del rendimiento de los jugadores y la toma de decisiones estratégicas, aunque se reconoce que este enfoque puede ser limitado para analizar el rendimiento de jugadores que no juegan en posiciones de delanteros. En conclusión, la tabla "Máximos Goleadores" es una herramienta valiosa que proporciona información relevante y contribuye al análisis y desarrollo en el fútbol. ."),
+                                        ],
+                                    ),
+                                    html.Div(
+                                        className="six columns",
+                                        children=[
+                                            html.P("Juan Diego Simbaqueba", style={'font-size': '18px'}),
+                                            html.P("La tabla "Máximos goleadores" es importante, ya que nos permite tener una idea de qué tan determinante es un jugador en la temporada para su equipo. Podemos establecer el promedio de goles que marca por partido y, de esta manera, también tener una idea del nivel que está teniendo el equipo hasta esa fecha. De igual manera, podemos analizar si un equipo está dependiendo ofensivamente en su totalidad de un solo jugador, lo cual puede ayudar al equipo a establecer un plan de contingencia contra dicho jugador."),
+                                            html.P("Natalia Cabrera", style={'font-size': '18px'}),
+                                            html.P("El pie permite visualizar el porcentaje de jugadores que han metido determinado número de goles durante la temporada. Lo que evidencia si ha aumentado o disminuido el rendimiento de los jugadores con respecto a las temporadas pasadas y así saber si se debe exigir más a los equipos o no. El diagrama de barras agiliza el proceso de seleccionar el máximo goleador de los partidos, así como la participación total de cada uno de los jugadores. A la vez es útil al momento de la premiación, entrenamiento de cada jugador, y estrategia de campo en los partidos. El diagrama de barras no es útil para analizar el rendimiento de jugadores, ya que no todos los jugadores juegan de posición delantero."),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                        ],
+                    ),
+                ],
+            )
+
+        ]),
+
+        # Divider grafica 3
+        html.Div(id='analisis-4', children=[
+            # Titulo
+            html.H3('Tabla de Amonestaciones de jugador', style={"textAlign": "left"}),
+            html.P('''
+                      La importancia de esta tabla radica en que, a nivel local de la Liga, los equipos deben pagar una multa por cada amonestación que sus jugadores cometan durante la temporada. El propósito de esta tabla es determinar cuántas faltas han cometido los jugadores y de qué equipos, con el fin de tener la información del total a pagar por cada equipo y de identificar a los jugadores con más faltas. 
+            '''),
+
+            # GRAFICA
+            html.Div(
+                className="row",
+                children=[
+                    html.Div(
+                        className="one-third column",
+                        children=[
+                            dcc.Graph(
+                                id='example-graph-4',
+                                figure=fig3
+                            )
+                        ]
+                    ),
+                    html.Div(
+                        className="two-thirds column",
+                        children=[
+                            dcc.Graph(
+                                id='example-graph-5',
+                                figure=fig3_1
+                            )
+                        ]
+                    )
+                ]
+            ),
+
+            html.Div(
+                className="row",
+                children=[
+                    html.Div(
+                        className="one-third column",
+                        children=[
+                            html.H4("Análisis de Resultados"),
+                            html.P("La gráfica generada por la tabla "Amonestaciones_por_jugador" desempeña un papel esencial al proporcionar un registro actualizado de las amonestaciones por jugador en la Liga local. Su objetivo principal es determinar el número de faltas cometidas por cada jugador y los equipos involucrados, lo cual facilita el cálculo del monto total a pagar por multas y la identificación de los jugadores con mayor cantidad de amonestaciones. La implementación de un trigger en la tabla "Amonestaciones_por_jugador" brinda facilidades al automatizar la actualización de los datos cada vez que se registra una nueva amonestación en la tabla "registro_partido". En resumen, el uso del trigger en esta tabla ofrece ventajas al automatizar la actualización de las amonestaciones por jugador, mejorando la precisión de los datos y agilizando la gestión de multas, así como la identificación de los jugadores más amonestados en la Liga local. "),
+                        ],
+                    ),
+                    html.Div(
+                        className="two-thirds column",
+                        children=[
+                            html.H4("Sección de Discusión"),
+                            html.Div(
+                                className="row",
+                                children=[
+                                    html.Div(
+                                        className="six columns",
+                                        children=[
+                                            html.P("Mythili Kasibhatla", style={'font-size': '18px'}),
+                                            html.P("En mi opinión, la implementación del trigger en la tabla "Amonestaciones_por_jugador" es una herramienta muy beneficiosa para la gestión de un equipo de fútbol. Gracias a este mecanismo, podemos obtener información actualizada y precisa sobre las amonestaciones de los jugadores, lo que nos permite tomar medidas preventivas y realizar análisis estadísticos para mejorar el rendimiento del equipo y la toma de decisiones estratégicas. En definitiva, considero que el uso del trigger en esta tabla es de gran utilidad y aporta valor al proceso de gestión de los equipos. "),
+                                            html.P("Elissa Castellanos", style={'font-size': '18px'}),
+                                            html.P("La implementación del trigger en la tabla "Amonestaciones_por_jugador" es una herramienta muy beneficiosa para la gestión de un equipo de fútbol. Gracias a este mecanismo, se puede obtener información actualizada y precisa sobre las amonestaciones de los jugadores, lo que permite tomar medidas preventivas y realizar análisis estadísticos para mejorar el rendimiento del equipo y la toma de decisiones estratégicas. Además, la tabla de amonestaciones es importante e interesante, ya que proporciona un análisis exacto de los jugadores con más faltas por partido, lo cual es crucial para identificar acciones antideportivas. Asimismo, la gráfica asociada a esta tabla permite visualizar el porcentaje de jugadores con diferentes niveles de amonestaciones, detectar tendencias y analizar el tipo de amonestación. Esto facilita la identificación de los jugadores más amonestados y permite abordar de manera específica los problemas relacionados con las amonestaciones. En resumen, el trigger implementado en la tabla "Amonestaciones_por_jugador" ofrece beneficios significativos en la gestión de los equipos al proporcionar información actualizada, análisis detallados y una mejor visualización de las amonestaciones en el fútbol. "),
+                                        ],
+                                    ),
+                                    html.Div(
+                                        className="six columns",
+                                        children=[
+                                            html.P("Juan Diego Simbaqueba", style={'font-size': '18px'}),
+                                            html.P("En mi opinión, la tabla de amonestaciones es muy importante e interesante. Nos permite realizar un análisis exacto de los jugadores que tienden a tener más faltas por partido, lo cual puede ser crucial al intentar identificar jugadores que hacen constantemente acciones antideportivas. La información presente en la tabla también ayuda a las organizaciones correspondientes que se encargan de poner multas a los jugadores y equipos por sus acciones."),
+                                            html.P("Natalia Cabrera", style={'font-size': '18px'}),
+                                            html.P("La gráfica permite visualizar el porcentaje de jugadores que han obtenido determinado número de amonestaciones, y así visualizar si ha aumentado o disminuido con respecto a la temporada pasada. Además, no permite distinguir entre el tipo de amonestación, es decir si tarjeta amarilla, roja o una falta. El diagrama de barras mejora la visualización de cuál jugador cometió más amonestaciones, o si en general el número de amonestaciones es alto y se deba hablar con un equipo en específico."),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                        ],
+                    ),
+                ],
+            )
+
+        ]),
+
+        # Divider grafica 3
+        html.Div(id='analisis-3', children=[
+            # Titulo
+            html.H3('Tabla de posiciones de los equipos', style={"textAlign": "left"}),
+            html.P('''
+                      Esta tabla es importante porque el equipo que tenga más puntos al final de la temporada se proclamará campeón de la liga y obtendrá una serie de beneficios, desde dinero hasta plazas para torneos internacionales. 
+            '''),
+
+            # GRAFICA
+            dcc.Graph(
+                id='example-graph-6',
+                figure=fig4
+            ),
+
+            html.Div(
+                className="row",
+                children=[
+                    html.Div(
+                        className="one-third column",
+                        children=[
+                            html.H4("Análisis de Resultados"),
+                            html.P("La tabla "Posiciones_de_los_equipos" se llena automáticamente utilizando información de la tabla "registro_partido" gracias a la implementación de triggers. Estos triggers se encargan de actualizar los datos de manera automática cada vez que se registra un nuevo partido en la tabla "registro_partido". De esta manera, el sistema calcula y asigna los puntos correspondientes a cada equipo en función de los resultados de los partidos. La gráfica generada brinda una gran facilidad y eficiencia en la gestión de las posiciones de los equipos, ya que los datos se actualizan automáticamente y en tiempo real. Además, el uso de triggers asegura la consistencia de la información en la tabla "Posiciones_de_los_equipos", evitando posibles errores humanos al calcular manualmente los puntos y actualizar la posición de cada equipo. En resumen, el trigger implementado en la tabla "Posiciones_de_los_equipos" ofrece facilidades en la actualización y cálculo automático de los puntos de cada equipo, agilizando el proceso de determinar las posiciones en la liga y brindando una gestión eficiente y precisa de la competición. "),
+                        ],
+                    ),
+                    html.Div(
+                        className="two-thirds column",
+                        children=[
+                            html.H4("Sección de Discusión"),
+                            html.Div(
+                                className="row",
+                                children=[
+                                    html.Div(
+                                        className="six columns",
+                                        children=[
+                                            html.P("Mythili Kasibhatla", style={'font-size': '18px'}),
+                                            html.P("Desde mi perspectiva, el trigger implementado en la tabla "Posiciones_de_los_equipos" desempeña un papel crucial para los equipos, ya que les brinda acceso a datos actualizados sobre su posición en la clasificación. Esto les permite llevar a cabo análisis estadísticos y evaluaciones estratégicas. Con esta información confiable a su disposición, los equipos pueden identificar áreas de mejora, comparar su desempeño con el de otros equipos y tomar decisiones informadas para optimizar su juego y tácticas.  "),
+                                            html.P("Elissa Castellanos", style={'font-size': '18px'}),
+                                            html.P("El trigger implementado en la tabla "Posiciones_de_los_equipos" desempeña un papel crucial al brindar a los equipos acceso a datos actualizados sobre su posición en la clasificación. Esto les permite realizar análisis estadísticos, evaluaciones estratégicas y tomar decisiones informadas para optimizar su juego y tácticas. Además, esta tabla es fundamental para determinar qué equipos están dominando la competencia, los de élite, los de media tabla y aquellos con más posibilidades de descender. Proporciona una visión clara de la situación de los equipos y facilita la planificación a nivel internacional, así como la identificación de equipos en riesgo de descenso. Además, ayuda a los equipos con pocos puntos a tener una visión clara de su posición y la cantidad de puntos necesarios para recuperarse. En resumen, la tabla "Posiciones de los equipos" ofrece una mejor organización, visualización y toma de decisiones estratégicas en la competición."),
+                                        ],
+                                    ),
+                                    html.Div(
+                                        className="six columns",
+                                        children=[
+                                            html.P("Juan Diego Simbaqueba", style={'font-size': '18px'}),
+                                            html.P("Personalmente, veo que la tabla "Posiciones de los equipos" es una de las más importantes, puesto que gracias a ella podemos saber qué equipos están dominando la competencia, los equipos de élite, los equipos de media tabla y los equipos que tienen más posibilidades de descender, debido a su nivel competitivo más bajo, lo cual se observa en los puntos. Con esta información, podemos intuir qué equipos representarán al país a nivel internacional y qué equipos bajarán de división para dar paso a nuevos equipos."),
+                                            html.P("Natalia Cabrera", style={'font-size': '18px'}),
+                                            html.P("Permite una mejor organización y visualización de los equipos que van ganando, y además permite a los equipos con pocos puntos ver que tan abajo se encuentran o cuántos puntos necesitan para recuperarse."),
+                                        ],
+                                    ),
+                                ],
+                            ),
+                        ],
+                    ),
+               html.Div(
+                   className="row",
+                   children=[
+                               html.H2("Conclusiones"),
+                               html.Div(
+                                   className="row",
+                                   children=[
+                                       html.Div(
+                                           className="six columns",
+                                           children=[
+                                               html.P("Mythili Kasibhatla", style={'font-size': '18px'}),
+                                               html.P("Para concluir, el tema elegido para nuestro proyecto resultó ser una excelente elección. Al poder crear una base de datos desde cero, pudimos identificar y resolver de manera más específica cada uno de los problemas que surgieron. Abordamos estos problemas desde la perspectiva de los usuarios de la página y los solucionamos en nuestra función como creadores de la base de datos. Además, es importante destacar que nuestro proyecto enfrenta una problemática de diseño en cuanto a la presentación de información de la Liga. Por esta razón, la funcionalidad de búsqueda que implementamos a través de los triggers y vistas resulta de gran utilidad para cualquier persona interesada, ya sea un fanático o un estadista. Por otro lado, el planteamiento del problema con el modelo entidad-relación y la visualización mediante el uso de Dash demuestran claramente los diferentes desafíos que abordamos durante el desarrollo del proyecto. Finalmente, durante todo el proceso de creación de la base de datos, tuvimos en cuenta los conocimientos adquiridos a lo largo del curso, aplicándolos y evidenciándolos en cada etapa del proyecto. "),
+                                               html.P("Elissa Castellanos", style={'font-size': '18px'}),
+                                               html.P(" En conclusión, el proyecto resultó ser una excelente elección, permitiéndonos abordar de manera específica los problemas desde la perspectiva de los usuarios. La funcionalidad de búsqueda implementada a través de triggers y vistas fue de gran utilidad tanto para los fanáticos como para los estadistas. Demostramos dominio en el uso de PostgreSQL y el Modelo Entidad-Relación, logrando una organización eficiente en la generación de estrategias para los equipos y una correcta visualización de los datos. Estamos satisfechos con los resultados obtenidos al crear la base de datos desde cero y aplicar los conocimientos adquiridos durante el curso."),
+                                           ],
+                                       ),
+                                       html.Div(
+                                           className="six columns",
+                                           children=[
+                                               html.P("Juan Diego Simbaqueba", style={'font-size': '18px'}),
+                                               html.P("Personalmente, considero que el proyecto fue un gran acierto para medir las habilidades adquiridas durante el semestre y aplicar de manera práctica todo lo aprendido, incluyendo conceptos y lógica. Fue un trabajo muy completo en el que demostramos un dominio del tema, incluso utilizando material adicional de la documentación de la plataforma PostgreSQL para desarrollar algunos triggers. Utilizamos la mayoría de los conceptos aprendidos, desde consultas y subconsultas, hasta la creación e implementación de funciones y tipos de datos, así como elementos como triggers y vistas, entre otros. Con respecto al Modelo Entidad-Relación (MER), logramos evidenciar un correcto entendimiento de este mecanismo, lo cual nos facilitó en gran medida plasmar y conectar la idea principal. Estoy satisfecho con los resultados obtenidos al aprender sobre la creación de nuevas bases de datos."),
+                                               html.P("Natalia Cabrera", style={'font-size': '18px'}),
+                                               html.P(" La creación de la base de datos permitirá a los equipos como a los directores una mejor organización y eficiencia al momento de generar estrategias para los equipos. El uso de dash es bueno para visualizar las búsquedas de datos de PostgreSQL y así facilitar su análisis. Al crear la base de datos desde cero, se aprecia los distintos métodos de carga masiva de datos, como los de Excel, y se destaca la utilidad de las bases de datos. El proceso del diagrama entidad-relación es fundamental para la creación de una base datos ya que determina de manera concisa las llaves primarias- foráneas necesarias para una búsqueda eficiente."),
+                                           ],
+                                       ),
+                                   ],
+                               ),
+                           ],
+                       ),
+                ],
+            )
+
+        ])
+
     ])
-    if __name__== '__main__':
-        app.run_server (debug=True)
-except Exception as ex:
-    print(ex)
-finally:
-    connection.close()
-    print('conexion finalizada')
+    
+    
+    if __name__ == '__main__':
+        app.run_server(debug=True)
+
+except psycopg2.Error as e:
+    print(f'Error al conectar a PostgreSQL: {e}')
